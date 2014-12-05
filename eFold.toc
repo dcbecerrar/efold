@@ -1,0 +1,28 @@
+\contentsline {section}{\numberline {1}Abstract}{3}
+\contentsline {section}{\numberline {2}Introduction}{3}
+\contentsline {section}{\numberline {3}Materials}{6}
+\contentsline {subsection}{\numberline {3.1}Study Case Benchmark}{6}
+\contentsline {subsection}{\numberline {3.2}EvFold Benchmark}{7}
+\contentsline {subsection}{\numberline {3.3}916 Benchmark}{8}
+\contentsline {subsection}{\numberline {3.4}Pfam Benchmark}{8}
+\contentsline {subsubsection}{\numberline {3.4.1}PF0018 - SH3 Domain}{8}
+\contentsline {subsubsection}{\numberline {3.4.2}Kunitz Domain}{9}
+\contentsline {subsubsection}{\numberline {3.4.3}LSm PF01423}{10}
+\contentsline {section}{\numberline {4}Methods}{10}
+\contentsline {subsection}{\numberline {4.1}Modelling the ensembles}{13}
+\contentsline {subsubsection}{\numberline {4.1.1}\textbf {The forward step.}}{13}
+\contentsline {subsubsection}{\numberline {4.1.2}\textbf {The backward step.}}{16}
+\contentsline {subsection}{\numberline {4.2}Predicting Folding Dynamics}{17}
+\contentsline {section}{\numberline {5}Experimental Framework}{18}
+\contentsline {section}{\numberline {6}Results}{21}
+\contentsline {subsection}{\numberline {6.1}Study Case Benchmark}{21}
+\contentsline {subsubsection}{\numberline {6.1.1}Protein G}{21}
+\contentsline {subsubsection}{\numberline {6.1.2}Protein G Mutant A}{27}
+\contentsline {subsection}{\numberline {6.2}Pfam Benchmark}{29}
+\contentsline {subsubsection}{\numberline {6.2.1}SH3 Domain}{29}
+\contentsline {subsubsection}{\numberline {6.2.2}PF00240}{30}
+\contentsline {subsubsection}{\numberline {6.2.3}PF01423 Kunitz Domain}{32}
+\contentsline {subsubsection}{\numberline {6.2.4}PF00240}{33}
+\contentsline {section}{\numberline {7}Conclusions}{34}
+\contentsline {section}{\numberline {8}Report December 3, 2014}{34}
+\contentsline {subsection}{\numberline {8.1}Conclusions of the experimental framework}{34}

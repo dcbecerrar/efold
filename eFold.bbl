@@ -1,0 +1,291 @@
+\begin{thebibliography}{10}
+
+\bibitem{jensen2006interpreting}
+O.N. Jensen.
+\newblock Interpreting the protein language using proteomics.
+\newblock {\em Nature Reviews Molecular Cell Biology}, 7(6):391--403, 2006.
+
+\bibitem{kihara2002ab}
+D.~Kihara, Y.~Zhang, H.~Lu, A.~Kolinski, and J.~Skolnick.
+\newblock Ab initio protein structure prediction on a genomic scale:
+  Application to the mycoplasma genitalium genome.
+\newblock {\em Proceedings of the National Academy of Sciences}, 99(9):5993,
+  2002.
+
+\bibitem{liebler2002introduction}
+D.C. Liebler.
+\newblock {\em Introduction to proteomics: tools for the new biology}.
+\newblock Humana Pr Inc, 2002.
+
+\bibitem{fiser2004protein}
+A.~Fiser.
+\newblock Protein structure modeling in the proteomics era.
+\newblock {\em Expert review of proteomics}, 1(1):97--110, 2004.
+
+\bibitem{adhikari2012novo}
+Aashish~N Adhikari, Karl~F Freed, and Tobin~R Sosnick.
+\newblock De novo prediction of protein folding pathways and structure using
+  the principle of sequential stabilization.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  109(43):17442--17447, 2012.
+
+\bibitem{amato2003using}
+Nancy~M Amato, Ken~A Dill, and Guang Song.
+\newblock Using motion planning to map protein folding landscapes and analyze
+  folding kinetics of known native structures.
+\newblock {\em Journal of Computational Biology}, 10(3-4):239--255, 2003.
+
+\bibitem{zaki2004predicting}
+Mohammed~J Zaki, Vinay Nadimpally, Deb Bardhan, and Chris Bystroff.
+\newblock Predicting protein folding pathways.
+\newblock {\em Bioinformatics}, 20(suppl 1):i386--i393, 2004.
+
+\bibitem{ramakrishnan2012geofold}
+Vibin Ramakrishnan, Sai~Praveen Srinivasan, Saeed~M Salem, Suzanne~J Matthews,
+  Wilfredo Col{\'o}n, Mohammed Zaki, and Christopher Bystroff.
+\newblock Geofold: Topology-based protein unfolding pathways capture the
+  effects of engineered disulfides on kinetic stability.
+\newblock {\em Proteins: Structure, Function, and Bioinformatics},
+  80(3):920--934, 2012.
+
+\bibitem{berger1998protein}
+B.~Berger and T.~Leighton.
+\newblock Protein folding in the hydrophobic-hydrophilic (hp) model is
+  np-complete.
+\newblock {\em Journal of Computational Biology}, 5(1):27--40, 1998.
+
+\bibitem{crescenzi1998complexity}
+P.~Crescenzi, D.~Goldman, C.~Papadimitriou, A.~Piccolboni, and M.~Yannakakis.
+\newblock On the complexity of protein folding.
+\newblock {\em Journal of computational biology}, 5(3):423--465, 1998.
+
+\bibitem{shaw2010atomic}
+D.E. Shaw, P.~Maragakis, K.~Lindorff-Larsen, S.~Piana, R.O. Dror, M.P.
+  Eastwood, J.A. Bank, J.M. Jumper, J.K. Salmon, Y.~Shan, et~al.
+\newblock Atomic-level characterization of the structural dynamics of proteins.
+\newblock {\em Science}, 330(6002):341--346, 2010.
+
+\bibitem{dror2011pathway}
+R.O. Dror, A.C. Pan, D.H. Arlow, D.W. Borhani, P.~Maragakis, Y.~Shan, H.~Xu,
+  and D.E. Shaw.
+\newblock Pathway and mechanism of drug binding to g-protein-coupled receptors.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  108(32):13118--13123, 2011.
+
+\bibitem{pronk2011copernicus}
+S.~Pronk, P.~Larsson, I.~Pouya, G.R. Bowman, I.S. Haque, K.~Beauchamp, B.~Hess,
+  V.S. Pande, P.M. Kasson, and E.~Lindahl.
+\newblock Copernicus: A new paradigm for parallel adaptive molecular dynamics.
+\newblock In {\em High Performance Computing, Networking, Storage and Analysis
+  (SC), 2011 International Conference for}, pages 1--10. IEEE, 2011.
+
+\bibitem{piana2012protein}
+S.~Piana, K.~Lindorff-Larsen, and D.E. Shaw.
+\newblock Protein folding kinetics and thermodynamics from atomistic
+  simulation.
+\newblock {\em Proceedings of the National Academy of Sciences}, 2012.
+
+\bibitem{waldispuhl2008modeling}
+J.~Waldisp{\"u}hl, C.W. O'Donnell, S.~Devadas, P.~Clote, and B.~Berger.
+\newblock Modeling ensembles of transmembrane $\beta$-barrel proteins.
+\newblock {\em Proteins: Structure, Function, and Bioinformatics},
+  71(3):1097--1112, 2008.
+
+\bibitem{marks2011protein}
+D.S. Marks, L.J. Colwell, R.~Sheridan, T.A. Hopf, A.~Pagnani, R.~Zecchina, and
+  C.~Sander.
+\newblock Protein 3d structure computed from evolutionary sequence variation.
+\newblock {\em PloS one}, 6(12):e28766, 2011.
+
+\bibitem{ding2003statistical}
+Y.~Ding and C.E. Lawrence.
+\newblock A statistical sampling algorithm for rna secondary structure
+  prediction.
+\newblock {\em Nucleic acids research}, 31(24):7280--7301, 2003.
+
+\bibitem{mccaskill2004equilibrium}
+J.S. McCaskill.
+\newblock The equilibrium partition function and base pair binding
+  probabilities for rna secondary structure.
+\newblock {\em Biopolymers}, 29(6-7):1105--1119, 2004.
+
+\bibitem{foat2006statistical}
+B.C. Foat, A.V. Morozov, and H.J. Bussemaker.
+\newblock Statistical mechanical modeling of genome-wide transcription factor
+  occupancy data by matrixreduce.
+\newblock {\em Bioinformatics}, 22(14):e141--e149, 2006.
+
+\bibitem{chereji2011statistical}
+R.V. Chereji, D.~Tolkunov, G.~Locke, and A.V. Morozov.
+\newblock Statistical mechanics of nucleosome ordering by
+  chromatin-structure-induced two-body interactions.
+\newblock {\em Physical Review E}, 83(5):050903, 2011.
+
+\bibitem{fain2001novel}
+B.~Fain and M.~Levitt.
+\newblock A novel method for sampling alpha-helical protein backbones.
+\newblock {\em Journal of molecular biology}, 305(2):191--201, 2001.
+
+\bibitem{waldispuhl2006predicting}
+J.~Waldisp{\"u}hl, B.~Berger, P.~Clote, and J.M. Steyaert.
+\newblock Predicting transmembrane $\beta$-barrels and interstrand residue
+  interactions from sequence.
+\newblock {\em PROTEINS: Structure, Function, and Bioinformatics},
+  65(1):61--74, 2006.
+
+\bibitem{waldispuhl2005modeling}
+J.~Waldisp{\"u}hl and J.M. Steyaert.
+\newblock Modeling and predicting all-alpha transmembrane proteins including
+  helix-helix pairing.
+\newblock {\em Theoretical computer science}, 335(1):67--92, 2005.
+
+\bibitem{shenker2011efficient}
+S.~Shenker, C.~ODonnell, S.~Devadas, B.~Berger, and J.~Waldisp{\"u}hl.
+\newblock Efficient traversal of beta-sheet protein folding pathways using
+  ensemble models.
+\newblock In {\em Research in Computational Molecular Biology}, pages 408--423.
+  Springer, 2011.
+
+\bibitem{skolnick1997monsster}
+J.~Skolnick, A.~Kolinski, and A.R. Ortiz.
+\newblock Monsster: a method for folding globular proteins with a small number
+  of distance restraints1.
+\newblock {\em Journal of molecular biology}, 265(2):217--241, 1997.
+
+\bibitem{ortiz1998nativelike}
+A.R. Ortiz, A.~Kolinski, and J.~Skolnick.
+\newblock Nativelike topology assembly of small proteins using predicted
+  restraints in monte carlo folding simulations.
+\newblock {\em Proceedings of the National Academy of Sciences}, 95(3):1020,
+  1998.
+
+\bibitem{ortiz1999ab}
+A.R. Ortiz, A.~Kolinski, P.~Rotkiewicz, B.~Ilkowski, and J.~Skolnick.
+\newblock Ab initio folding of proteins using restraints derived from
+  evolutionary information.
+\newblock {\em Proteins: Structure, Function, and Bioinformatics},
+  37(S3):177--185, 1999.
+
+\bibitem{wu2011improving}
+S.~Wu, A.~Szilagyi, and Y.~Zhang.
+\newblock Improving protein structure prediction using multiple sequence-based
+  contact predictions.
+\newblock {\em Structure}, 19(8):1182--1191, 2011.
+
+\bibitem{morcos2011direct}
+F.~Morcos, A.~Pagnani, B.~Lunt, A.~Bertolino, D.S. Marks, C.~Sander,
+  R.~Zecchina, J.N. Onuchic, T.~Hwa, and M.~Weigt.
+\newblock Direct-coupling analysis of residue coevolution captures native
+  contacts across many protein families.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  108(49):E1293--E1301, 2011.
+
+\bibitem{hopf2012three}
+T.A. Hopf, L.J. Colwell, R.~Sheridan, B.~Rost, C.~Sander, and D.S. Marks.
+\newblock Three-dimensional structures of membrane proteins from genomic
+  sequencing.
+\newblock {\em Cell}, 2012.
+
+\bibitem{kmiecik2008folding}
+S.~Kmiecik and A.~Kolinski.
+\newblock Folding pathway of the b1 domain of protein g explored by multiscale
+  modeling.
+\newblock {\em Biophysical journal}, 94(3):726--736, 2008.
+
+\bibitem{hubner2004commitment}
+I.A. Hubner, J.~Shimada, and E.I. Shakhnovich.
+\newblock Commitment and nucleation in the protein g transition state.
+\newblock {\em Journal of molecular biology}, 336(3):745--761, 2004.
+
+\bibitem{gronenborn1991novel}
+A.M. Gronenborn, D.R. Filpula, N.Z. Essig, A.~Achari, M.~Whitlow, P.T.
+  Wingfield, GM~Clore, et~al.
+\newblock A novel, highly stable fold of the immunoglobulin binding domain of
+  streptococcal protein g.
+\newblock {\em Science(Washington)}, 253(5020):657--661, 1991.
+
+\bibitem{blanco1994short}
+F.J. Blanco, G.~Rivas, and L.~Serrano.
+\newblock A short linear peptide that folds into a native stable
+  $\beta$-hairpin in aqueous solution.
+\newblock {\em Nature Structural \& Molecular Biology}, 1(9):584--590, 1994.
+
+\bibitem{kuszewski2008fast}
+J.~Kuszewski, G.M. Clore, and A.M. Gronenborn.
+\newblock Fast folding of a prototypic polypeptide: the immunoglobulin binding
+  domain of streptococcal protein g.
+\newblock {\em Protein Science}, 3(11):1945--1952, 2008.
+
+\bibitem{jackson2006ubiquitin}
+Sophie~E Jackson.
+\newblock Ubiquitin: a small protein folding paradigm.
+\newblock {\em Organic \& biomolecular chemistry}, 4(10):1845--1853, 2006.
+
+\bibitem{cheng2005three}
+Jianlin Cheng and Pierre Baldi.
+\newblock Three-stage prediction of protein $\beta$-sheets by neural networks,
+  alignments and graph algorithms.
+\newblock {\em Bioinformatics}, 21(suppl 1):i75--i84, 2005.
+
+\bibitem{wani2009revealing}
+Ajazul~Hamid Wani and Jayant~B Udgaonkar.
+\newblock Revealing a concealed intermediate that forms after the rate-limiting
+  step of refolding of the sh3 domain of pi3 kinase.
+\newblock {\em Journal of molecular biology}, 387(2):348--362, 2009.
+
+\bibitem{hubner2005nucleation}
+Isaac~A Hubner, Katherine~A Edmonds, and Eugene~I Shakhnovich.
+\newblock Nucleation and the transition state of the sh3 domain.
+\newblock {\em Journal of molecular biology}, 349(2):424--434, 2005.
+
+\bibitem{ding2005reconstruction}
+Feng Ding, Weihua Guo, Nikolay~V Dokholyan, Eugene~I Shakhnovich, and Joan-Emma
+  Shea.
+\newblock Reconstruction of the src-sh3 protein domain transition state
+  ensemble using multiscale molecular dynamics simulations.
+\newblock {\em Journal of molecular biology}, 350(5):1035--1050, 2005.
+
+\bibitem{grantcharova2000long}
+Viara~P Grantcharova, David~S Riddle, and David Baker.
+\newblock Long-range order in the src sh3 folding transition state.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  97(13):7084--7089, 2000.
+
+\bibitem{martinez1999folding}
+Jose~C Mart{\'\i}nez and Luis Serrano.
+\newblock The folding transition state between sh3 domains is conformationally
+  restricted and evolutionarily conserved.
+\newblock {\em Nature Structural \& Molecular Biology}, 6(11):1010--1016, 1999.
+
+\bibitem{chelvanayagam1993prediction}
+G~Chelvanayagam and P~Argos.
+\newblock Prediction of protein folding pathways: Bovine pancreatic trypsin
+  inhibitor.
+\newblock {\em Cytotechnology}, 11(1):S67--S71, 1993.
+
+\bibitem{chang2011distinct}
+Jui-Yoa Chang.
+\newblock Distinct folding pathways of two homologous disulfide proteins:
+  bovine pancreatic trypsin inhibitor and tick anticoagulant peptide.
+\newblock {\em Antioxidants \& redox signaling}, 14(1):127--135, 2011.
+
+\bibitem{liwo1999protein}
+A.~Liwo, J.~Lee, D.R. Ripoll, J.~Pillardy, and H.A. Scheraga.
+\newblock Protein structure prediction by global optimization of a potential
+  energy function.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  96(10):5482--5485, 1999.
+
+\bibitem{becerra2010parallel}
+D.~Becerra, A.~Sandoval, D.~Restrepo-Montoya, and L.F. Nino.
+\newblock A parallel multi-objective ab initio approach for protein structure
+  prediction.
+\newblock In {\em Bioinformatics and Biomedicine (BIBM), 2010 IEEE
+  International Conference on}, pages 137--141. IEEE, 2010.
+
+\bibitem{wolfinger2004efficient}
+M.T. Wolfinger, W.A. Svrcek-Seiler, C.~Flamm, I.L. Hofacker, and P.F. Stadler.
+\newblock Efficient computation of rna folding dynamics.
+\newblock {\em Journal of Physics A: Mathematical and General}, 37:4731, 2004.
+
+\end{thebibliography}
