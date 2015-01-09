@@ -7,6 +7,7 @@
 \usepackage{subcaption}
 \usepackage{multirow}
 \usepackage{booktabs} 
+\usepackage{ulem}
 
 \textheight=9.0in
 \textwidth=6.7in
@@ -16,6 +17,7 @@
 \pagestyle{empty}
 \newcommand{\efold}{\texttt{efold}\xspace}
 \newcommand{\tfolder}{\texttt{tfolder}\xspace}
+\newcommand{\evfold}{\texttt{EVfold}\xspace}
 \usepackage{xspace}
 
 
@@ -59,7 +61,9 @@ The recent assessment of evolutionary sequence information prediction methods as
 
 In this work, we introduce \efold, a new protein folding pathway prediction framework that combines ensemble modelling techniques with evolutionary sequence information methods. \efold is a general framework that enables efficient simultaneous prediction of the protein folding mechanism and structure using only the primary sequence as input. Protein folding is modelled through the efficient enumeration of folding pathways using an ensemble methodology, where each folding step (Starting from an unfolded state) is represented by the addition of one topologically possible conformational with one less degree of freedom (i.e., an additional secondary structure).
 
-\efold represents a plausible advance in the PF state of the art because it makes feasible the enumeration of folding pathways starting with an unfolded protein and consider the various possibilities for the protein to fold. Furthermore, \efold studies protein folding as  an ab-initio framework that models the dynamics of protein folding, instead of focussing solely on the native conformation. \efold also expands our previous protein folding prediction frameworks in several directions while keeping its low CPU-time requirements. First \efold models $\alpha$-helices and multiple $\beta$-sheets. Next, \efold algorithm applies memoization techniques and computes the conformational landscape of all $\beta$-sheet topology i.e. number of $\beta$-strand with their relative positions at once, hence avoiding redundant calculations and decreasing the computational complexity. Finally, to the best of our knowledge, for the first time the residue contact information is integrated in the Boltzmann sampling process performed by ensemble methods to predict protein pathways. The latter is important because statistical potentials have a limited accuracy and better scoring scheme are required to develop accurate folding pathways predictors. We found that the evolutionary sequence information stored in co-variation model has the potential to significantly increase the accuracy of our previous ensemble techniques.
+\efold represents a plausible advance in the PF state of the art because it makes feasible the enumeration of folding pathways starting with an unfolded protein and consider the various possibilities for the protein to fold. Furthermore, \efold studies protein folding as  an ab-initio framework that models the dynamics of protein folding, instead of focussing solely on the native conformation. \efold also expands our previous protein folding prediction frameworks \cite{shenker2011efficient} in several directions while keeping its low CPU-time requirements. First \efold models $\alpha$-helices and multiple $\beta$-sheets. Next, \efold algorithm applies memoization techniques and computes the conformational landscape of all $\beta$-sheet topology i.e. number of $\beta$-strand with their relative positions at once, hence avoiding redundant calculations and decreasing the computational complexity. Finally, to the best of our knowledge, for the first time the residue contact information is integrated in the Boltzmann sampling process performed by ensemble methods to predict protein pathways. The latter is important because statistical potentials have a limited accuracy and better scoring scheme are required to develop accurate folding pathways predictors. We found that the evolutionary sequence information stored in co-variation model has the potential to significantly increase the accuracy of our previous ensemble techniques.
+
+OJO => AGREGAR UN PARRAFO CON EL SIMIL DEL PUENTE Y LA RELACION UNFOLDED => PATHWAY => STRUCTURE. DICIENDO QUE EL DE NOSOTROS ES OTRO PARADIGMA, DAR RAZONES HISTORICAS.
 
 \section{Materials}
 
@@ -71,8 +75,8 @@ The B1 domain of protein G, generally called GB1 or proteinG, has represented an
 
 Ubiquitin is a small protein (76 residues in length) that has a highly structured native state which is very stable. Its high stability may be linked with the function of ubiquitin, which becomes covalently attached to lysine side chains in proteins thereby targeting them for degradation by the proteasome. It is likely that there is some residual structure in the denatured state of ubiquitin in the region of the first $\beta$-hairpin and the $\alpha$-helix. The folding of ubiquitin is two-state under most conditions, however, an intermediate can be stabilized and become populated during folding using a number of methods, for example, by the use of a stabilizing salt such as sodium sulfate \cite{jackson2006ubiquitin}. 
 
-\subsection{EvFold Benchmark}
-The original evFold benchmark is composed by 15 protein structures ranging from 48 to 258 amino acids in size. The evFold benchmark proteins were selected based on the following criteria: (i) Proteins that belong to a protein family composed by more then 1000 sequences per protein family; (ii) Proteins that include all of the main protein fold families, such as all$-\alpha$, $\alpha/\beta$, $\alpha+\beta$ and all-$\beta$; (iii) Proteins with availability of experimentally derived (PDB) structures for at least one family member. Each PFAM family was assumed to be iso-structural, so that  all protein structures in a family form a tight  and distinct cluster in protein structure space. The essential components of the evFold method for the prediction of a 3D protein structure using evolutionary sequence information without the use of structural templates are \cite{marks2011protein}:
+\subsection{\evfold Benchmark}
+The original \evfold benchmark is composed by 15 protein structures ranging from 48 to 258 amino acids in size. The \evfold benchmark proteins were selected based on the following criteria: (i) Proteins that belong to a protein family composed by more then 1000 sequences per protein family; (ii) Proteins that include all of the main protein fold families, such as all$-\alpha$, $\alpha/\beta$, $\alpha+\beta$ and all-$\beta$; (iii) Proteins with availability of experimentally derived (PDB) structures for at least one family member. Each PFAM family was assumed to be iso-structural, so that  all protein structures in a family form a tight  and distinct cluster in protein structure space. The essential components of the \evfold method for the prediction of a 3D protein structure using evolutionary sequence information without the use of structural templates are \cite{marks2011protein}:
 \begin{enumerate}
 \item Protein sequence alignment for the protein family containing the target protein.
 \item Formulation of a global statistical model for sequences in a protein family.
@@ -84,7 +88,7 @@ The original evFold benchmark is composed by 15 protein structures ranging from 
 \item  Automated ranking of predicted structures to nominate a single predicted structure and a set of lower ranked alternatives.
 \end{enumerate}  
 
-A subset of 6 proteins are selected out of the 15 protein structures. The criteria to filter the set of proteins are to build a benchmark with proteins shorter than 250 aminoacid length; proteins belonging to the folding groups $\alpha/\beta$, $\alpha+\beta$ and all-$\beta$;  and proteins with less than six strands. Regarding the components of the evFold method, the 500 best ranked evolutionary inferred contacts are selected as input for our algorithm. This mean that out of the 8 components of evFold, our method only runs the first four.  Then, only the statistical analysis of co-variation in the protein sequences is used to infer residue-residue proximity within an iso-structural protein family. In other words, \efold does not make use of the secondary structure prediction and distance geometry and simulated annealing calculations performed by EvFold. 
+A subset of 6 proteins are selected out of the 15 protein structures. The criteria to filter the set of proteins are to build a benchmark with proteins shorter than 250 aminoacid length; proteins belonging to the folding groups $\alpha/\beta$, $\alpha+\beta$ and all-$\beta$;  and proteins with less than six strands. Regarding the components of the \evfold method, the 500 best ranked evolutionary inferred contacts are selected as input for our algorithm. This mean that out of the 8 components of evFold, our method only runs the first four.  Then, only the statistical analysis of co-variation in the protein sequences is used to infer residue-residue proximity within an iso-structural protein family. In other words, \efold does not make use of the secondary structure prediction and distance geometry and simulated annealing calculations performed by EvFold. 
 
 
 \subsection{916 Benchmark}
@@ -94,7 +98,7 @@ Regarding the proposed experimental framework, 125 proteins were selected out of
 
 
 \subsection{Pfam Benchmark}
-112 Pfam families are identified when the complete set benchmark (i.e., Study Case plus EvFold plus 916 Benchmarks) is clustered. Three
+112 Pfam families are identified when the complete set benchmark (i.e., Study Case plus \evfold plus 916 Benchmarks) is clustered. Three
 families (out of 112) are retained given that they contains 4 or more proteins and that there is experimental information about their folding pathways.  These three families are studied in order to determine the existence of common folding intermediates between the members of a same Pfam family. The conservation of folding intermediates in evolutionary related proteins can unveil, throughout  the identification of key regions, motifs and residue contacts, general kinetic and thermodynamical principles that govern protein folding.      
 
 
@@ -133,7 +137,7 @@ The proposed approach predicts protein structures and protein pathways in a sing
 \begin{enumerate}
 \item  \textbf{Modelling the ensembles:} The main goal of this task is to compute a set of protein states with the highest occurrence likelihood. Our approach is based in two steps:  
 \begin{enumerate}
-\item \textbf{The forward step} of the algorithm computes the equilibrium partition function of all possible secondary structures:  Using a divide-and-conquer approach and memoization techniques,  we compute the Boltzmann partition function over the set of all possible protein states, where the protein states has been modelled through a coarse grain representation based on secondary structures. Particularly, each protein is presumed to fold into a complete set of unique structural states,  with a single energetic value  assigned according to a Boltzmann distribution and evolutionary contact prediction scores. Then, clusters of low-energy states with similar conformations are extracted using their relative energetics.
+\item \textbf{The forward step} of the algorithm computes the equilibrium partition function of all possible secondary structures:  Using a divide-and-conquer approach and memoization techniques,  we compute the Boltzmann partition function over the set of all possible protein states, where the protein states has been modelled through a coarse-grained representation based on secondary structures. Particularly, each protein is presumed to fold into a complete set of unique structural states,  with a single energetic value  assigned according to a Boltzmann distribution and evolutionary contact prediction scores. Then, clusters of low-energy states with similar conformations are extracted using their relative energetics.
 \item \textbf{The backward step} computes the probabilities of a set of statistically representative samples: We analyze the significance of the protein states generated in the forward step computing its associated occurrence likelihood. 
 \end{enumerate}
 \item \textbf{Modelling the Folding Dynamics:} The main goal of this task is to derive the likelihood of dynamic state-to-state transitions, and assemble a set of complete folding paths.  The transition from a random coil to the native state was modelled as a path in a graph of varyingly folded protein conformation states. The dynamics of the system is calculated by treating the folding process as a continuous time discrete state
@@ -163,7 +167,7 @@ The main task of the forward step in the modelling of ensembles, is to compute t
 
 \emph{\textbf{Computation of the Partition Function:}}
 
-Conceptually, each protein structure was described by a coarse grain residue-level representation. Specifically, the structure was defined by the set of residue/residue contacts that form hydrogen bonds between $\beta$-strand backbones. The protein representation includes side-chain orientation and long-range contacts, that will enable us to develop an efficient strategy to enumerate all potential states. This representation sufficiently reduces the complexity of the conformational search, although, the number of protein conformations are still greatly flexible (E.g. permutation of strands, strand's size, orientation of side chains, secondary structure motifs, etc.), and the structures can take on various conformations that are vastly different between them, and the native conformation.
+Conceptually, each protein structure was described by a coarse-grained residue-level representation. Specifically, the structure was defined by the set of residue/residue contacts that form hydrogen bonds between $\beta$-strand backbones. The protein representation includes side-chain orientation and long-range contacts, that will enable us to develop an efficient strategy to enumerate all potential states. This representation sufficiently reduces the complexity of the conformational search, although, the number of protein conformations are still greatly flexible (E.g. permutation of strands, strand's size, orientation of side chains, secondary structure motifs, etc.), and the structures can take on various conformations that are vastly different between them, and the native conformation.
 
 The protein generic topologies were encoded using a stepwise permutation algorithm through the labeled set of $\beta$-strands $\{1 \dots n\}$. For each permutation, the set of all $\beta$-strand$/$$\beta$-strand pairings were computed, such that each interaction in the $\beta$-topology is assigned to be parallel (P), anti-parallel (A) or none (N)  (See Figure \ref{fig:topologies}). It is important to stress that in order to avoid unrealistic general protein shapes, optimize computation resources and focus in valid motifs, we imposed that valid foldings must satisfy steric and biologically derived constraints. More specifically, we set a minimum and maximum strand length and minimum inter-strand loop size for the protein conformations.
 
@@ -225,7 +229,7 @@ A hash table maps \textit{keys} to \textit{values}. In our implementation, \text
 %\end{figure*}
 
 %\emph{\textbf{EvFold()}} 
-The used evolutionary contact prediction method \cite{marks2011protein} is based on a maximum entropy approach to perform an unsupervised inference of residue-residue contacts from multiple sequence alignments (MSAs). Specifically, the method derives a set of essential residue pair couplings through a maximum entropy approach and a direct coupling analysis. The minimal set of pairs predicted to co-vary due to evolutionary constraints is returned as output of the algorithm and it is connected as an heuristic to our ensemble approach. 
+The used evolutionary contact prediction method \cite{marks2011protein}, called \evfold, is based on a maximum entropy approach to perform an unsupervised inference of residue-residue contacts from multiple sequence alignments (MSAs). Specifically, the method derives a set of essential residue pair couplings through a maximum entropy approach and a direct coupling analysis. The minimal set of pairs predicted to co-vary due to evolutionary constraints is returned as output of the algorithm and it is connected as an heuristic to our ensemble approach. 
 
 In our ensemble pipeline, the set of predicted couplings are ranked by their numerical values and they are codified in an $N\times N$ binary matrix $C$, also know as a predicted contact map, whose element $C(i,j) = 1$ if the predicted direct information of residues $i$ and $j$ is greater than a threshold value $t$. In our approach, $t$ was chosen as the direct information of the $500$ hundred best ranked prediction. This parameter was determined as a good threshold to predict 3D structures with correct spatial arrangement of $\alpha$ helices and $\beta$-strands for our benchmark proteins, as compared to their experimentally determined structures.
 
@@ -303,13 +307,158 @@ Markov process. Given the matrix of folding rates $R$, where $R_{ij} = r_{ij}$ a
 
 \section{Experimental Framework}
 
+In this section, an experimental framework to report the results obtained using the proposed approach is presented. Specifically, an analysis of the results obtained over the set of benchmark proteins is provided.
+
 In order to understand the performance of the proposed method, two main experiments were performed to study the modelling ensemble (protein structure prediction) and modelling folding phases (protein pathway prediction). The first phase is performed off line and it contributes most of the complexity of the algorithm. The second part is computed online and it runs using a web-service as interface with the user. \efold is run having as input only the amino-acid sequence and a set of parameters. Then, the algorithm runs until all the folding pathways and structures have been computed. Based on the experimental framework and user experiences with our previous techniques, we have fixed the limits of our algorithm (constrained in the web service interface) to predict the folding pathways for small proteins (less than 200 amino acids), and to model proteins with up to 7 different $\beta$-sheet strands.
 
-The first experiment quantify the ability of \efold to predict protein topologies through the prediction of  residue-residue contacts, secondary structures and topologies. For the residue-residue contact prediction, we sample 150 configurations for each protein of the benchmark, and use these ensembles to compute a stochastic contact map. The contact map represents the probability of observing a given contact. Contacts are defined as all $C_\alpha$ atoms less than $8\AA$ apart in the PDB file. The precision (i.e., $\frac{no. ~ of ~ correctly ~ predicted ~ contacts}{no. ~ of ~ predicted ~ contacts}$), sensitivity (i.e., $\frac{no. ~ of ~ correctly ~ predicted ~ contacts}{no. ~ of ~ observed ~ contacts}$) and F-measure {i.e., $\frac{2 \times precision \times sensitivity}{precision + sensitivity}$} were the chosen measures to evaluate the quality of the predicted contacts. These metrics are evaluated when predicted contacts are within exact or $\pm 2$ residues of an observed contact, and are more than 0, 12 and 24 residues apart. The secondary structure predictions are studied following the same methodology than residue-residue contacts. A pair of residues are considered to be part of $\beta$-strand interactions if the predicted residues are contacts and those contacts are observed to be involved in a $\beta$-sheet interaction in its corresponding PDB file. Finally, the topology prediction is studied based on the ranking of the Boltzmann probabilities of each ensemble of secondary structures. Particularly, the position of the topology reported by the PDB file with respect a sorting of the Boltzmann probabilities of all the secondary structures is computed.  
+\begin{table}[htbp]
+\footnotesize
+\begin{center} {
+\begin{tabular}{c c cc cc cc}
 
-To study the efficacy of our technique for predicting protein folding pathways, we studied the folding landscape of proteins for which their pathways have been elucidated through many experimental studies and/or MD simulations (see Material section for more details). We studied the ability of \efold to separate conformational transitions that are critical to folding from those transitions that could simply result from minor structural fluctuations. 
+Measure & Approach & \multicolumn{2}{c}{$x >0$} & \multicolumn{2}{c}{$x\geq12$} &
+\multicolumn{2}{c}{$x\geq 24$} \\
+& $$  & \multicolumn{1}{c}{$\pm 0$} & \multicolumn{1}{c}{$\pm 2$} &
+\multicolumn{1}{c}{$\pm 0$} & \multicolumn{1}{c}{$\pm 2$} & \multicolumn{1}{c}{$\pm 0$} &
+\multicolumn{1}{c}{$\pm 2$}\\ \midrule
+\multirow{2}{*}{Precision} &   Ours  &\bf20.75 & \bf71.76  &   \bf17.65 & \bf75  &   \bf33.33 & \bf94.12\\
+&   tFolder  &13.3 & 52.1  &   10.6 & 54.1  &   14.0 & 58.3\\
+\multirow{2}{*}{Recall}  &  Ours   &\bf100 & \bf100  &   \bf100 & \bf100  &  25 & \bf100 \\
+&   tFolder  & 56.3 & 97.9  &   53.8 & 61.5  &  \bf37.5 & 87.5 \\
+\multirow{2}{*}{F-measure} &  Ours   &20.75 & \bf68  &   \bf35.48 & \bf87.1  &  \bf61.11 & \bf100 \\
+&    tFolder & \bf21.5 & \bf68  &   18.1 & 69.2  &  20.3 & 70 \\
 
-The graph of the folding pathway was constructed by considering all pairs of clusters computed  during the modelling ensemble phase. If the minimum distance between two clusters was less than the transition threshold, we considered that there was exchange between the two states. 
+\end{tabular} }
+\end{center}
+\caption{\footnotesize The performance of the proposed approach for contact prediction is evaluated based on the precision, recall and F-measure of experimentally observed contacts. The performance metrics are reported for contacts which are 0, 12 and 24 residues apart. The metrics are also studied when predicted contacts are within $\pm 2$ residues of an observed contact. The best results obtained are shown in bold.}
+\label{tb:comparison}
+\end{table}
+
+\subsection{Contact and Strand Prediction}
+
+The prediction of residue-residue contacts has been proved useful in reconstructing protein backbones by providing information to determine accurate 3D protein structures. Generally, the predictors of residue-residue proximity in folded structures (such as \evfold) are based on the existence of interdependent changes in groups of variable amino acids belonging to a protein family of homologues. Even if \efold is not an algorithm developed to predict residue-residue contacts, we evaluated the prediction capabilities of \efold to recognize contacts involved in secondary structures. Then, we tested the proposed algorithm using the complete protein benchmark and compared the performance of \efold with the predictions performed by \evfold and by our previous algorithm \tfolder. 
+
+The first experiment quantify the ability of \efold to predict protein topologies through the prediction of  residue-residue contacts. We sample 150 configurations for each protein of the benchmark, and use these ensembles to compute a stochastic contact map. The contact map represents the probability of observing a given contact. Contacts are defined as all $C_\alpha$ atoms less than $8\AA$ apart in the PDB file. The precision (i.e., $\frac{no. ~ of ~ correctly ~ predicted ~ contacts}{no. ~ of ~ predicted ~ contacts}$), sensitivity (i.e., $\frac{no. ~ of ~ correctly ~ predicted ~ contacts}{no. ~ of ~ observed ~ contacts}$) and F-measure {i.e., $\frac{2 \times precision \times sensitivity}{precision + sensitivity}$} were the chosen measures to assess the effectiveness of the method. These metrics are evaluated for all types of contacts (short, medium, and long-range). Particularly, an evaluation is performed when predicted contacts are within exact or $\pm2$ residues of an observed contact, and are more than 0, 12 and 24 residues apart. 
+
+Figure \ref{fig:boxplots} (column \textit{Contact prediction}) reports, through box plots, the best results of the experiments for the complete set of proteins (row \textit{Complete}) and the set divided by the number of strands in the tested proteins. It is important to notice that the proposed method predicts residue contacts with an excellent precision for $\pm2$ for all contact separations in the complete benchmark. The precision for exact prediction (i.e., columns $\pm0$) is also high and it averages around $50\%$ for the short and medium contacts and around $33\%$ for long-range contacts. This result is significant given that critical protein folding steps can involve both short range and long-range $\beta$-sheet contacts and that the precision assessed state-of-the-art algorithms in contact prediction for proteins without homology-based templates averages around 20\% \cite{monastyrskyy2014evaluation}. The recall obtained by \efold average around $10\%$ and $30\%$ for contacts $\pm 0$ and $\pm 2$, respectively. This results is low as expected given that \efold does not aim the prediction of all residue contacts, but those involved in secondary structures. 
+
+Comparing the predicted residue contacts between \efold and our previous model \tfolder for the Protein G, it is worth noticed in Table \ref{tb:comparison} that \efold shows a better predicted accuracy than the \tfolder algorithm. Furthermore, the proposed method performed better than tFolder in all the ranges except for the exact observed contacts studied 24 residues apart. The proposed approach not only kept sensitive to the distance of contact separation, but it increased the precision and sensitivity of the ensemble method. 
+
+\efold is also compared with \evfold to measure at which extent \efold improve the residue contact predictions used as input in our method. Particularly, the $500$ best ranked evolutionary inferred contacts (i.e., EICs) computed by \evfold are used as input in \efold (see section Methodology for more details).  Figure \ref{fig:boxplotsevfold} (column \textit{Contact prediction}) reports, through box plots, the results of the experiments for the complete set of proteins. The recall of \evfold for $\pm2$ averages around $40\%$ for all the range of contacts. Then, \evfold gets a better coverage than \efold given that, unlike \efold, \evfold does not focus only in contacts involved in secondary structures. Regarding the precision of the \evfold results, its low performance can be explained by the dependence of \evfold on the depth of the target alignments (See supplementary Table 1 for a complete list of the size of MSAs).  Figure \ref{fig:boxplotsevfold} shows that the methodology implemented by \efold improved the initial contact predictions performed by \evfold. 
+
+As previously stated, \efold is an ensemble algorithm aimed at protein structure and pathways prediction. Then, we are interested in study its capability to predict contacts involved in secondary structures. The prediction of those contacts is studied following the same methodology than normal residue-residue contacts. A pair of residues are considered to be part of $\beta$-strand interactions if the predicted residues are contacts and those contacts are observed to be involved in a $\beta$-sheet interaction in its corresponding PDB file. Finally, the topology prediction is studied based on the ranking of the Boltzmann probabilities of each ensemble of secondary structures. Particularly, the position of the topology reported by the PDB file with respect a sorting of the Boltzmann probabilities of all the secondary structures is computed.  
+
+Figure \ref{fig:boxplots} (column \textit{Strand prediction}) reports, through box plots, the best results of the experiments for contact prediction of residue-residue contacts involved in $\beta$-sheet structures. The results are spliced in rows showing the complete set of proteins (row \textit{Complete}) and the set divided by the number of strands in the tested proteins. It is important to notice that the F-measure values for $\pm2$ for all contact separations in the complete benchmark is higher than $60\%$. This result correspond to a very good performance of the method in terms of its accuracy and sensitivity. Furthermore, it confirms \efold as a very good predictor of contacts involved in secondary structures. Regarding the exact prediction (i.e., columns  $\pm0$), the precision decreases for long range contacts. Particularly, it  goes from a precision around $30\%$ for the complete set of contacts to a precision around $20\%$ in long range contacts. The best and worst performance of \efold can be recognized in proteins with three and two strands, respectively. It is important to stress that in \efold there is not a big difference between the precision and sensitivity values for strand predictions, given that \efold focuses on predicting contacts involved only in secondary structures.
+
+Figure \ref{fig:boxplotsevfold} (column \textit{Strand prediction}) reports, through box plots, the results of the experiments performed by \evfold for the complete set of proteins. It is important to notice that these results are more homogeneous than the results obtained in the contact prediction experiment. Moreover, there is not a big difference in the behaviour of the precision and recall measures, as noted in the contact prediction column. There is not a big difference either between the contacts $\pm 0$ and $\pm 2$ for all the contact ranges. The average of all the evaluation measures for an exact prediction ($\pm 0$), for the strand prediction experiment, fall in the same range (i.e., below a $10\%$) than its contact prediction counterpart.  Then, it gives the insight that most of the contacts predicted by \evfold are involved in secondary structures. On the other hand, there is a clear decrease of the recall of the strand prediction with respect to the contact prediction, suggesting that for ($\pm 2$) predictions, \evfold reports a greater quantity of contacts not involved in secondary structure than the exact predictions ($\pm 0$).  The prediction values for \evfold are much lower than the values of \efold, showing that the methodology implemented by \efold improved the initial contact predictions performed by \evfold regarding contact and strand predictions. 
+
+There is not a clear consensus about what accuracy, coverage, and distribution of contacts along the sequence are needed to 
+improve the prediction of protein structures and/or pathways, however, in general the incorporation of contact information into protein folding programs leads to improvement of the results. Particularly, the correct prediction of long-range contacts must be predicted correctly to allow an accurate folding pathways to be reconstructed. Long-range contacts narrows the search space of possible conformation imposing strong constraints on the 3D structure. \efold represents an ensemble predictor that is conceptually different to the state-of-the-art algorithms in contact prediction, however, it produce results comparable results with those algorithms. Furthermore, \efold reports very good results, when compared with standard evaluation measures, for contact and residue prediction.  
+
+
+
+
+\begin{figure*}[htbp]
+	 \centering
+	 		\includegraphics[scale=0.85, angle =0, clip=true, trim= 20 285 0 2]{Figures/BoxPlots.pdf}
+			\caption{ The performance of the proposed approach for contact prediction is evaluated based on the precision(green), recall(blue) and F-measure(red) of experimentally observed contacts. The performance metrics are reported for contacts which are 0, 12 and 24 residues apart. The metrics are also studied when predicted contacts are within $\pm 2$ residues of an observed contact.}  
+		\label{fig:boxplots}
+\end{figure*}
+
+\begin{figure*}[htbp]
+	 \centering
+	 		\includegraphics[scale=0.9, angle =0, clip=true, trim= 20 650 50 20]{Figures/BoxPlotsEvFold.pdf}
+			\caption{ The performance of \evfold for contact prediction is evaluated based on the precision(green), recall(blue) and F-measure(red) of experimentally observed contacts. The performance metrics are reported for contacts which are 0, 12 and 24 residues apart. The metrics are also studied when predicted contacts are within $\pm 2$ residues of an observed contact.}  
+		\label{fig:boxplotsevfold}
+\end{figure*}
+
+
+\subsection{Protein Topologies Prediction}
+
+\efold represents the proteins by a coarse-grained residue-level representation using the set of residue/residue contacts that form hydrogen bonds between $\beta$-strand backbones. \efold performs the generation of all the admissible $\beta$-sheet topologies and the computation of the Boltzmann partition function over those topologies. Then, \efold ranks those topologies based on their energy states and it clusters the top low-energy states to predict the folding dynamics. The experiment reported in this section quantify the ability of \efold to correctly rank the admissible $\beta$-sheet topologies. Particularly, for each protein in the benchmark, we are interested in quantify the position of the topology reported by the corresponding PDB file in the rank computed by \efold.
+
+Figure \ref{fig:boxplots} (column \textit{Rank}) reports, through box plots, the position occupied by the PDB topologies in the ranking computed by \efold. Particularly, for each protein composed by $L$ strands, the position with respect to the top percentage when considering all the topologies with $L$ strands (column \textit{All}) and the attainable topologies given a common parent with $L-1$ strands (column \textit{P}) are computed. It is important to stress that the likelihood of a specific topology to be chosen by \efold to create clusters of low-energy states (used to predict the folding dynamics) increases as the topology move to the head of the ranking-list.
+
+Figure \ref{fig:boxplots} (column \textit{Rank}) shows that, in average, the proposed approach ranks the target topologies (i.e., the topologies reported in the PDB) in the top $2\%$ for the categories \textit{All} and \textit{P}. The best performance is computed for proteins of two and five strands. On the other hand, the worst performance is computed by proteins of three strands. \efold performs better when the ranking is computed for all the the admissible $\beta$-sheet topologies (column \textit{All}), than when compared with a subset (column \textit{P}). Figure \ref{fig:boxplots} (column \textit{Rank}) shows excellent discrimination power of \efold to separate conformational transitions that are critical to folding from those transitions that could simply result from minor structural fluctuations. In other words, \efold allows the sampling of accurate conformations and it also score accurately those models more favourably from other decoys.   
+
+
+\subsection{Protein Pathway Prediction}
+
+To study the efficacy of our technique for predicting protein folding pathways, we studied the folding landscape of proteins for which their pathways have been elucidated through many experimental studies and/or MD simulations (see Material section for more details). A graph for a specific folding pathway was constructed by considering all pairs of clusters computed  during the modelling ensemble phase. If the minimum distance between two clusters was less than the transition threshold, we considered that there was exchange between the two states. 
+
+\subsubsection{Protein G}
+
+
+
+
+
+
+
+ The edges in the graph represent the possible folding pathways and the existence of structural similarity between the connected vertices. Specifically, for every pair of states we add an transition edge if (1) the states have compatible topologies, and further, (2) the states show structural similarity.
+
+
+shows how the probability of observing any of the reachable states changes over time. Inspection of this figure reveals that the folding intermediates are consisted with previous literature reports. Specifically, it is consistent with the work reported by (\cite{blanco1994short,kuszewski2008fast}), with respect to the early formation of the second hairpin ($\beta3 - ~turn -\beta4$) and its fundamental role in the folding process. Additionally, this second hairpin centers around known nucleation points W43, Y50, F54 that are strongly stabilized by three hydrophobic residues W43, Y45 , F52 (\cite{hubner2004commitment}). Our results also show the nucleation of the $\beta$-sheet residues between $\beta1$ and $\beta4$ as a next folding event (See permutation $3 ~ 4 ~1 ~2$ with pairings  $\mathit{ANTI ~NONE ~ANTI}$). This folding event can be preceded by the folding interaction between the $\alpha$-helix and the second hairpin as also reported in (\cite{kmiecik2008folding,song2002path}). 
+
+
+Comparing the predicted folding pathways between \efold and our previous model \tfolder (See Supplementary Figure TBD), it is worth noticed that both models were able to predict the reported pathway for the tested protein; however, the probability of the experimental folding pathway is higher for \efold than \tfolder. The previous fact means that \efold was more likely to correctly predict the observed folding pathway than its counterpart. Additionally, it is clear that \efold was able to narrow the number of generated and predicted templates. There are two main factors that could help \efold to got this performance with respect to \tfolder. $i)$ The penalization term used in \efold, which penalizes the protein conformations that superimpose a $\beta-strand$ where an $\alpha-helix$ structure was predicted, allowed the model to narrow the search around conformational transitions that are critical to folding. $ii)$ The hierarchical assembly folding model used in \efold could represent a step-wise mechanism to narrow the conformation search through the correct prediction of the  the initial stages of protein folding process.
+
+
+
+
+
+
+
+\begin{figure*}[htbp]
+	 \centering
+	 		\includegraphics[scale=0.9, angle =0, clip=true, trim= 10 525 100 40]{Figures/Pathways_1EM7.pdf}
+			\caption{Pathways 1EM7: Figure \ref{fig:Pathways_1EM7} represents the predicted transitions from a random coil to the native state of proteinG as a path in a graph of varyingly folded protein conformation states. The states in the graph represent energetically accessible conformation states which have been previously generated by the proposed Boltzmann-weighted ensemble sampling method. The percentage at top of each vertex (and its corresponding transparency) count for the number of times that this topology is predicted as a transition over the total number of runs. The vertices in the graph represent the transition between two topologies. The topologies connected by an edge are compatible topologies with structural similarity. The percentage at top of each edge (and its corresponding transparency) count for the number of times that this transition is found over the total number of runs. The predicted folding pathways are presented as paths in the graph. The percentage of presence of each path is presented through a Venn diagram at the right top corner of the figure. }  
+		\label{fig:Pathways_1EM7}
+\end{figure*}
+
+
+
+
+
+
+The proposed method has a good prediction of protein pathways.
+\begin{itemize}
+\item :) The proposed method correlates well the in-silico data vs experimental data (3 full experiments). However this correlation is constrained by the level of detail given by our method and the lack of an helix analysis. Inspection of the results reveals that the folding intermediates are consisted with previous literature reports. Specifically, it is consistent with the work reported by (\cite{blanco1994short,kuszewski2008fast}), with respect to the early formation of the second hairpin ($\beta3 - ~turn -\beta4$) and its fundamental role in the folding process. Additionally, this second hairpin centers around known nucleation points W43, Y50, F54 that are strongly stabilized by three hydrophobic residues W43, Y45 , F52 (\cite{hubner2004commitment}). Our results also show the nucleation of the $\beta$-sheet residues between $\beta1$ and $\beta4$ as a next folding event (See permutation $3 ~ 4 ~1 ~2$ with pairings  $\mathit{ANTI ~NONE ~ANTI}$). This folding event can be preceded by the folding interaction between the $\alpha$-helix and the second hairpin as also reported in (\cite{kmiecik2008folding,song2002path}).  Interestingly, there are many interactions of three pairings (i.e., four $\beta$-strands), which agrees with previous findings about that four stranded $\beta$-sheets constitutes a metastable folding intermediate (\cite{neudecker2012structure}). This fact is very important because it gives a possible explanation about how the exposition of strand $\beta1$ and the four $\beta$-strand complex can lead the amyloid aggregation process.
+\item :) The method is flexible enough to agree with different experimental results, even if those experiments are sometimes contradictory.
+\item :| The method validate some reported experiments and explore some pathways do not reported, however, the method can not make any consistent claim about new biological discoveries.  
+\item :| The method is  consistent in the prediction of TS. We were able also to study nuclei residues.
+\item :( First folding options do not agree with reported pathways.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -331,6 +480,7 @@ the complete set of experiments.
 
 
 
+UN PARRAFO DICIENDO QUE LOS PATHWAYS NO SON UNICOS => PARA ESO ME SIRVE EL ULTIMO PAPER QUE ENCONTRE... How Fast-Folding Proteins Fold
 
 
 
@@ -342,19 +492,9 @@ the complete set of experiments.
 \section{Results}
 
 
-\begin{figure*}[htbp]
-	 \centering
-	 		\includegraphics[scale=0.65, angle =90, clip=true]{Figures/BoxPlots.pdf}
-			\caption{BoxPlots}  
-		\label{fig:boxplots}
-\end{figure*}
 
-\begin{figure*}[htbp]
-	 \centering
-	 		\includegraphics[scale=0.9, angle =0, clip=true, trim= 10 525 100 40]{Figures/Pathways_1EM7.pdf}
-			\caption{Pathways 1EM7}  
-		\label{fig:Pathways_1EM7}
-\end{figure*}
+
+
 
 \begin{figure*}[htbp]
 	 \centering
@@ -430,126 +570,6 @@ A1 &  &  &  &  &  &  &  &  &  &  & 100  \\
 
 
 
-\subsection{Study Case Benchmark}
-\subsubsection{Protein G}
-\begin{itemize}
-\item Check the probability of all the intermediates.
-\begin{itemize}
-\item During the forward step, all the intermediate steps are considered as a first folded event in at least one of the runs. Specifically, the hairpin 1 was selected 56\% of the times as a first folding event, hairpin 2 was selected 4\% of the times as the first folding event, B1 Ð B4 sheet was select 40\% of the times as the first folding event.
-\item 100\% of the runs contain the topology 1A2 (Needed for the Intermediate hairpin 1 and hairpin 2). 100\% of the runs contain the topology 1P2 (Needed for the intermediate B1 Ð B4). 100\% of the runs contain the topology 4P1A2 (Needed for the interaction of the intermediates hairpin1 + B1 ÐB4 Sheet). 78\% of the runs contains the topology 3A4P1 (needed for the interaction of the intermediates hairpin2 + B1-B4 Sheet) 73\% of the runs contains the topology 3A4N1A2 (needed for the interaction of the intermediates hairpin1 + hairpin2). 58.2\% of the runs contain the topologies 1A2 \& 1P2 \& 4P1A2 \& 3A4P1 \& 3A4N1A2 \& 3A4P1A2 (All possible pathways).
-\item 65.45\% of the runs contain the intermediate pathway 1P4 $\Rightarrow$ 4P1A2 (interaction of the intermediates B1 ÐB4 Sheet + hairpin1). 74.54\% of the runs contain the intermediate pathway 1P4 $\Rightarrow$ 3A4P1 (needed for the interaction of the intermediates B1-B4 Sheet + hairpin2). 98.18\% of the runs contain the intermediate pathway 1A2 $\Rightarrow$ 4P1A2 (interaction of the intermediates hairpin1 + B1 ÐB4 Sheet). 70.9\% of the runs contain the intermediate pathway 1A2 + 3A4 $\Rightarrow$ 3A4N1A2 (needed for the interaction of the intermediates harpin1 + hairpin2). 80\% of the runs contain the intermediate pathway 4P1A2 $\Rightarrow$ 3A4P1A2 (interaction of the intermediate intermediates hairpin1 + B1 ÐB4 Sheet + native state). 20\% of the runs contain the intermediate pathway 3A4P1$\Rightarrow$ 3A4P1A2 (interaction of the intermediate intermediates hairpin2 + B1 ÐB4 Sheet + native state).  63.63\% of the runs contain the intermediate pathway 3A4N1A2 $\Rightarrow$ 3A4P1A2 (interaction of the intermediates harpin1 + hairpin2 + native state).
-\item 65.45\% of the runs contain the intermediate pathway 1P4 $\Rightarrow$ 4P1A2 (interaction of the intermediates B1 ÐB4 Sheet + hairpin1). 74.54\% of the runs contain the intermediate pathway 1P4 $\Rightarrow$ 3A4P1 (needed for the interaction of the intermediates B1-B4 Sheet + hairpin2). 98.18\% of the runs contain the intermediate pathway 1A2 $\Rightarrow$ 4P1A2 (interaction of the intermediates hairpin1 + B1 ÐB4 Sheet). 70.9\% of the runs contain the intermediate pathway 1A2 + 3A4 $\Rightarrow$ 3A4N1A2 (needed for the interaction of the intermediates harpin1 + hairpin2). 80\% of the runs contain the intermediate pathway 4P1A2 $\Rightarrow$ 3A4P1A2 (interaction of the intermediate intermediates hairpin1 + B1 ÐB4 Sheet + native state). 20\% of the runs contain the intermediate pathway 3A4P1$\Rightarrow$ 3A4P1A2 (interaction of the intermediate intermediates hairpin2 + B1 ÐB4 Sheet + native state).  63.63\% of the runs contain the intermediate pathway 3A4N1A2 $\Rightarrow$ 3A4P1A2 (interaction of the intermediates harpin1 + hairpin2 + native state). 
-\item 63.63\% of the runs contains the pathway 1A2 + 3A4$\Rightarrow$3A4N1A2$\Rightarrow$3A4P1A2. 80\% of the runs contains the pathway 1A2 $\Rightarrow$3P1A2$\Rightarrow$3A4P1A2. 52.72\% of the runs contains the pathway 1P4 $\Rightarrow$4P1A2$\Rightarrow$3A4P1A2. 3.63\% of the runs contains the pathway 3A4 $\Rightarrow$3A4P1$\Rightarrow$3A4P1A2. 16.36\% of the runs contains the pathway 1P4 $\Rightarrow$ 3A4P1$\Rightarrow$ 3A4P1A2.
-\item 5.45\% of the runs contain all the possible pathways in the same graph.
-\end{itemize}
-\item Check the nucleus residues.
-\begin{itemize}
-\item The nuclei residues identify experimentally are Y3,L5 (Hairpin1), F30 (Helix), W43,Y45,F52 (Hairpin2). The runs contains a total of 4220 structures, for which the nuclei residues are present in the following proportions Y3(22.46\%), L5(88.67\%), W43(9.36\%), Y45(13.29\%) and F52(85.1\%).
-\end{itemize}
-\item Compare the nucleus residues with ubiquitin family.
-\begin{itemize}
-\item Y3, L5, F30, W43, and F52 show low sequence entropy over aligned sequences in the ubiquitin superfamily. The aligned sequences in the ubiquitin superfamily (with respect to the protein G) that show a frequency greater than 0 are: L5:K6(99.52\%), F30:V26(82.54\%), W43:L43(85.37\%), and Y45:F45(42.45\%). The sequence and structural alignment was taken from (Similarity of Protein G and Ubiquitin). It is important to stress that all the matches belongs to the secondary structures and that the atoms in the matched residues can be superimposed. The protein reference was 1UBQ.
-\end{itemize}
-\end{itemize}
-
-
-
-\subsubsection{Protein G Mutant A}
-\begin{itemize}
-\item Check the probability of all the intermediates.
-\begin{itemize}
-\item During the forward step, the intermediate steps $1A2$ and $1P4A3$ are not considered as a first folded event in the mutants $A1$ and $A33$. In average, the hairpin 1 was selected 24\% of the times as a first folding event, hairpin 2 was selected 16\% of the times as the first folding event, B1 Ð B4 sheet was select 60\% of the times as the first folding event.
-\item 100\% of the runs contain the topology 1A2 (Needed for the Intermediate hairpin 1 and hairpin 2). 100\% of the runs contain the topology 1P2 (Needed for the intermediate B1 Ð B4). 100\% of the runs contain the topology 4P1A2 (Needed for the interaction of the intermediates hairpin1 + B1 ÐB4 Sheet). 78\% of the runs contains the topology 3A4P1 (needed for the interaction of the intermediates hairpin2 + B1-B4 Sheet) 73\% of the runs contains the topology 3A4N1A2 (needed for the interaction of the intermediates hairpin1 + hairpin2). 58.2\% of the runs contain the topologies 1A2 \& 1P2 \& 4P1A2 \& 3A4P1 \& 3A4N1A2 \& 3A4P1A2 (All possible pathways).
-\item 65.45\% of the runs contain the intermediate pathway 1P4 $\Rightarrow$ 4P1A2 (interaction of the intermediates B1 ÐB4 Sheet + hairpin1). 74.54\% of the runs contain the intermediate pathway 1P4 $\Rightarrow$ 3A4P1 (needed for the interaction of the intermediates B1-B4 Sheet + hairpin2). 98.18\% of the runs contain the intermediate pathway 1A2 $\Rightarrow$ 4P1A2 (interaction of the intermediates hairpin1 + B1 ÐB4 Sheet). 70.9\% of the runs contain the intermediate pathway 1A2 + 3A4 $\Rightarrow$ 3A4N1A2 (needed for the interaction of the intermediates harpin1 + hairpin2). 80\% of the runs contain the intermediate pathway 4P1A2 $\Rightarrow$ 3A4P1A2 (interaction of the intermediate intermediates hairpin1 + B1 ÐB4 Sheet + native state). 20\% of the runs contain the intermediate pathway 3A4P1$\Rightarrow$ 3A4P1A2 (interaction of the intermediate intermediates hairpin2 + B1 ÐB4 Sheet + native state).  63.63\% of the runs contain the intermediate pathway 3A4N1A2 $\Rightarrow$ 3A4P1A2 (interaction of the intermediates harpin1 + hairpin2 + native state).
-\item 65.45\% of the runs contain the intermediate pathway 1P4 $\Rightarrow$ 4P1A2 (interaction of the intermediates B1 ÐB4 Sheet + hairpin1). 74.54\% of the runs contain the intermediate pathway 1P4 $\Rightarrow$ 3A4P1 (needed for the interaction of the intermediates B1-B4 Sheet + hairpin2). 98.18\% of the runs contain the intermediate pathway 1A2 $\Rightarrow$ 4P1A2 (interaction of the intermediates hairpin1 + B1 ÐB4 Sheet). 70.9\% of the runs contain the intermediate pathway 1A2 + 3A4 $\Rightarrow$ 3A4N1A2 (needed for the interaction of the intermediates harpin1 + hairpin2). 80\% of the runs contain the intermediate pathway 4P1A2 $\Rightarrow$ 3A4P1A2 (interaction of the intermediate intermediates hairpin1 + B1 ÐB4 Sheet + native state). 20\% of the runs contain the intermediate pathway 3A4P1$\Rightarrow$ 3A4P1A2 (interaction of the intermediate intermediates hairpin2 + B1 ÐB4 Sheet + native state).  63.63\% of the runs contain the intermediate pathway 3A4N1A2 $\Rightarrow$ 3A4P1A2 (interaction of the intermediates harpin1 + hairpin2 + native state). 
-\item 63.63\% of the runs contains the pathway 1A2 + 3A4$\Rightarrow$3A4N1A2$\Rightarrow$3A4P1A2. 80\% of the runs contains the pathway 1A2 $\Rightarrow$3P1A2$\Rightarrow$3A4P1A2. 52.72\% of the runs contains the pathway 1P4 $\Rightarrow$4P1A2$\Rightarrow$3A4P1A2. 3.63\% of the runs contains the pathway 3A4 $\Rightarrow$3A4P1$\Rightarrow$3A4P1A2. 16.36\% of the runs contains the pathway 1P4 $\Rightarrow$ 3A4P1$\Rightarrow$ 3A4P1A2.
-\item 5.45\% of the runs contain all the possible pathways in the same graph.
-\end{itemize}
-\item Check the nucleus residues.
-\begin{itemize}
-\item The nuclei residues identify experimentally are Y3,L5 (Hairpin1), F30 (Helix), W43,Y45,F52 (Hairpin2). The runs contains a total of 4220 structures, for which the nuclei residues are present in the following proportions Y3(22.46\%), L5(88.67\%), W43(9.36\%), Y45(13.29\%) and F52(85.1\%).
-\end{itemize}
-\item Compare the nucleus residues with ubiquitin family.
-\begin{itemize}
-\item Y3, L5, F30, W43, and F52 show low sequence entropy over aligned sequences in the ubiquitin superfamily. The aligned sequences in the ubiquitin superfamily (with respect to the protein G) that show a frequency greater than 0 are: L5:K6(99.52\%), F30:V26(82.54\%), W43:L43(85.37\%), and Y45:F45(42.45\%). The sequence and structural alignment was taken from (Similarity of Protein G and Ubiquitin). It is important to stress that all the matches belongs to the secondary structures and that the atoms in the matched residues can be superimposed. The protein reference was 1UBQ.
-\end{itemize}
-\end{itemize}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Pfam Benchmark}
-\subsubsection{SH3 Domain}
-\begin{itemize}
-\item Check the probability of all the intermediates.
-\begin{itemize}
-\item During the forward step, the interaction B1-B2 was selected 100\% of the times as a first folding event. The interaction B1B2B3 was selected 98.33\% of the times as the topology produced by the adding of a third strand. For the addition of a four strand, the interaction B1B2B3B4 was selected in 56.6\% of the opportunities, meanwhile the topology B5B1B2B3 was selected in the remaining 43.3\%.
-\item 100\% of the runs contain the topology 1A2 (needed for all the folding events). 100\% of the runs contain the topology 1A2A3 (Needed for the creation of the packed three-stranded b -sheets that form a single hydrophobic core). 98.3\% of the runs contains the topology 5A1 (Needed for the creation of the packed three-stranded b -sheets that form a single hydrophobic core) 100\% of the runs contains the topology 1A2A3A4(needed for the topology before aggregation). 98.3\% of the runs contain the topology 5A1A2A3. 96.6\% of the runs contain all the possible intermediates to build all the reported pathways.
-\item 100\% of the runs contain the intermediate pathway 1A2 $\Rightarrow$ 1A2A3 (interaction needed for the creation of the packed three-stranded b -sheets that form a single hydrophobic core). 98.33\% of the runs contain the intermediate pathway 1A2 $\Rightarrow$ 5A1A2 (interaction needed for the creation of the packed two-stranded b -sheets that form a single hydrophobic core). 96.66\% of the runs contain the intermediate pathway 1A2A3 $\Rightarrow$ 1A2A3A4 (interaction of the intermediate intermediates before aggregation). 68.33\% of the runs contain the intermediate pathway 1A2A3$\Rightarrow$ 5A1N2A3A4 (interaction needed in the hypothetical state where both packed stranded b-sheets are folded independently). 83\%  of the runs contain the intermediate pathway 1A2A3A4 $\Rightarrow$ 5A1A2A3A4 (needed to obtain the native state without aggregation). It is important to note that the protein 1NEG present the most divergent results between the pfam family.
-\item 83.33\% of the runs contains the pathway 1A2 $\Rightarrow$1A2A3$\Rightarrow$1A2A3A4$\Rightarrow$5A1A2A3A4. All the proteins has a probability >0.93 with the exeption of 1NEG(46.6\%). 11.66\% of the runs contains the pathway 1A2 $\Rightarrow$5A1A2$\Rightarrow$5A1A2A3$\Rightarrow$5A1A2A3A4. 46.66\% of the runs contains the pathway 1A2 $\Rightarrow$1A2A3$\Rightarrow$5A1N2A3A4$\Rightarrow$5A1A2A3A4.
-\item  11.66\% of the runs contain all the possible pathways in the same graph.
-\end{itemize}
-\item Check the nucleus residues.
-\begin{itemize}
-\item L24 (numbering from the src domain) is a highly conserved position in the SH3 fold family. It has been shown experimentally to be at least partially involved in the TSE $\Rightarrow$ 1I0C (L18) = 19\%, 1NEG(L24) = 3.5\%, 1OOT(L18) 30\%, 2HDA(L21) 25.2\%.
-\item Our results agrees with experimental results indicating that the second, third, and to a lesser extent the fourth b  strands are the most ordered regions of the TSE.  
-\end{itemize}
-\end{itemize}
-
-
-\subsubsection{PF00240}
-\begin{itemize}
-\item Check the probability of all the intermediates.
-\begin{itemize}
-\item During the forward step, all the intermediate steps are considered as a first folded event in at least one of the runs. Specifically, the hairpin 1 was selected 29.54\% of the times as a first folding event, hairpin 2 was also selected 29.54\% of the times as the first folding event, B1 Ð B4 sheet was select 34\% of the times as the first folding event.
-\item 100\% of the runs contain the topology 1A2 (Needed for the Intermediate hairpin 1 and hairpin 2). 100\% of the runs contain the topology 1P2 (Needed for the intermediate B1 Ð B4). 88.63\% of the runs contain the topology 4P1A2 (Needed for the interaction of the intermediates hairpin1 + B1 ÐB4 Sheet). 70.45\% of the runs contains the topology 3A4P1 (needed for the interaction of the intermediates hairpin2 + B1-B4 Sheet). 70.45\% of the runs contains the topology 3A4N1A2 (needed for the interaction of the intermediates harpin1 + hairpin2). 52.27\% of the runs contain the topologies 1A2 \& 1P2 \& 4P1A2 \& 3A4P1 \& 3A4N1A2 \& 3A4P1A2 (All possible pathways).
-\item 89\% of the runs contain the intermediate pathway 1P4 $\Rightarrow$ 4P1A2 (interaction of the intermediates B1 ÐB4 Sheet + hairpin1). 59.36\% of the runs contain the intermediate pathway 1P4 $\Rightarrow$ 3A4P1 (needed for the interaction of the intermediates B1-B4 Sheet + hairpin2). 68.88\% of the runs contain the intermediate pathway 1A2 $\Rightarrow$ 4P1A2 (interaction of the intermediates hairpin1 + B1 ÐB4 Sheet). 73.17\% of the runs contain the intermediate pathway 1A2 + 3A4 $\Rightarrow$ 3A4N1A2 (needed for the interaction of the intermediates harpin1 + hairpin2). 72.85\% of the runs contain the intermediate pathway 4P1A2 $\Rightarrow$ 3A4P1A2 (interaction of the intermediate intermediates hairpin1 + B1 ÐB4 Sheet + native state). 48.1\% of the runs contain the intermediate pathway 3A4P1$\Rightarrow$ 3A4P1A2 (interaction of the intermediate intermediates hairpin2 + B1 ÐB4 Sheet + native state).  45.87\% of the runs contain the intermediate pathway 3A4N1A2 $\Rightarrow$ 3A4P1A2 (interaction of the intermediates harpin1 + hairpin2 + native state).
-\item 45.87\% of the runs contains the pathway 1A2 + 3A4$\Rightarrow$3A4N1A2$\Rightarrow$3A4P1A2. 59.52\% of the runs contains the pathway 1A2 $\Rightarrow$3P1A2$\Rightarrow$3A4P1A2. 70.63\% of the runs contains the pathway 1P4 $\Rightarrow$4P1A2$\Rightarrow$3A4P1A2. 20\% of the runs contains the pathway 3A4 $\Rightarrow$3A4P1$\Rightarrow$3A4P1A2. 45.87\% of the runs contains the pathway 1P4 $\Rightarrow$ 3A4P1$\Rightarrow$ 3A4P1A2.
-\item  
-\end{itemize}
-\item Compare the nucleus residues with Protein G..
-\begin{itemize}
-\item The aligned sequences in the ubiquitin superfamily (with respect to the protein G) that show a frequency greater than 0 are: L5:K306(92.77\%), F30:V326(31\%), W43:L343(30.93\%), Y45:F345(27.43\%) and F52:L367(61.2\%). The sequence and structural alignment was taken from (Similarity of Protein G and Ubiquitin). It is important to stress that all the matches belongs to the secondary structures and that the atoms in the matched residues can be superimposed. The protein reference was 1UBQ and 1CMX.
-\end{itemize}
-\end{itemize}
-
-\subsubsection{PF01423 Kunitz Domain}
-\begin{itemize}
-\item Check the probability of all the intermediates.
-\begin{itemize}
-\item The SM1 sequence motif (which corresponds to B1,B2 and B3) are formed as first folding event in the 95.5\% of the runs.  The SM2 sequence motif (which corresponds to B4,B5) are formed as first folding event in the 4.5\% of the runs. The two SM groups are formed and other folding events are limited.
-\item 100\% of the runs contain the topology 1A2 (Needed for the SM1 and SM2 sequence motifs). 97.78\% of the runs contain the topology 1A2A3 (Needed for the SM1 motif). 88.89\% of the runs contain the topology 1A2A3A4 and 66.67\% contain the topology 5A1A2A3 (Those two topologies allow the formation of the SM1 motif followed of the SM2 motif)
-\item 97.78\% of the runs contain the intermediate pathway 1A2 $\Rightarrow$ 1A2A3 (interaction needed for the formation of the SM1 motif). 66.67\% of the runs contain the intermediate pathway 1A4 $\Rightarrow$ 5A1A4 (interaction needed for the formation of the SM2 motif). 73.34\% of the runs contain the intermediate pathway 1A2A3$\Rightarrow$1A2A3A4 (This interaction is needed for the formation of the SM1 motif and the start formation of the SM2 motif through the strand B4).  35.6\% of the runs contain the intermediate pathway 1A2A3$\Rightarrow$5A1A2A3 (This interaction is needed for the formation of the SM1 motif and the start formation of the SM2 motif through the strand B5). 11.11\% of the runs contain the intermediate pathway 5A1A2$\Rightarrow$5A1A2A4 (This interaction is needed for the formation of the SM2 motif and the start formation of the SM1 motif through the strand B1 and B2. 86.66\% of the runs contain the intermediate 1A2A3A4$\Rightarrow$5A1A2A3A4 (Formation of the SM1 motif followed of the SM2 motif) and  33.33\%  of the runs contain the intermediate 5A1A2A3$\Rightarrow$ 5A1A2A3A4 (Formation of the SM1 motif followed of the SM2 motif OR formation of the SM2 motif followed of the SM1 motif).
-\item  76.7\% of the runs contain the pathway 1A2 $\Rightarrow$ 1A2A3$\Rightarrow$1A2A3A4$\Rightarrow$1A2A3A4A5 (Formation of the SM1 motif followed of the SM2 motif). 26.7\% of the runs contain the pathway 1A2 $\Rightarrow$ 1A2A3$\Rightarrow$5A1A2A3$\Rightarrow$1A2A3A4A5 (Formation of the SM1 motif followed of the SM2 motif). 3.33\% of the runs contain the pathway 1A2$\Rightarrow$3A1A2$\Rightarrow$4A1A2A3$\Rightarrow$5A1A2A3A4 (Formation of the SM1 motif followed of the SM2 motif)
-\item There are no runs that contains all the possible pathways. 
-\end{itemize}
-\end{itemize}
-
-\subsubsection{PF00240}
-\begin{itemize}
-\item Check the probability of all the intermediates.
-\begin{itemize}
-\item During the forward step, all the intermediate steps are considered as a first folded event in at least one of the runs. Specifically, the hairpin 1 was selected 29.54\% of the times as a first folding event, hairpin 2 was also selected 29.54\% of the times as the first folding event, B1 Ð B4 sheet was select 34\% of the times as the first folding event.
-\item 100\% of the runs contain the topology 1A2 (Needed for the Intermediate hairpin 1 and hairpin 2). 100\% of the runs contain the topology 1P2 (Needed for the intermediate B1 Ð B4). 88.63\% of the runs contain the topology 4P1A2 (Needed for the interaction of the intermediates hairpin1 + B1 ÐB4 Sheet). 70.45\% of the runs contains the topology 3A4P1 (needed for the interaction of the intermediates hairpin2 + B1-B4 Sheet). 70.45\% of the runs contains the topology 3A4N1A2 (needed for the interaction of the intermediates harpin1 + hairpin2). 52.27\% of the runs contain the topologies 1A2 \& 1P2 \& 4P1A2 \& 3A4P1 \& 3A4N1A2 \& 3A4P1A2 (All possible pathways).
-\item 89\% of the runs contain the intermediate pathway 1P4 $\Rightarrow$ 4P1A2 (interaction of the intermediates B1 ÐB4 Sheet + hairpin1). 59.36\% of the runs contain the intermediate pathway 1P4 $\Rightarrow$ 3A4P1 (needed for the interaction of the intermediates B1-B4 Sheet + hairpin2). 68.88\% of the runs contain the intermediate pathway 1A2 $\Rightarrow$ 4P1A2 (interaction of the intermediates hairpin1 + B1 ÐB4 Sheet). 73.17\% of the runs contain the intermediate pathway 1A2 + 3A4 $\Rightarrow$ 3A4N1A2 (needed for the interaction of the intermediates harpin1 + hairpin2). 72.85\% of the runs contain the intermediate pathway 4P1A2 $\Rightarrow$ 3A4P1A2 (interaction of the intermediate intermediates hairpin1 + B1 ÐB4 Sheet + native state). 48.1\% of the runs contain the intermediate pathway 3A4P1$\Rightarrow$ 3A4P1A2 (interaction of the intermediate intermediates hairpin2 + B1 ÐB4 Sheet + native state).  45.87\% of the runs contain the intermediate pathway 3A4N1A2 $\Rightarrow$ 3A4P1A2 (interaction of the intermediates harpin1 + hairpin2 + native state).
-\item 45.87\% of the runs contains the pathway 1A2 + 3A4$\Rightarrow$3A4N1A2$\Rightarrow$3A4P1A2. 59.52\% of the runs contains the pathway 1A2 $\Rightarrow$3P1A2$\Rightarrow$3A4P1A2. 70.63\% of the runs contains the pathway 1P4 $\Rightarrow$4P1A2$\Rightarrow$3A4P1A2. 20\% of the runs contains the pathway 3A4 $\Rightarrow$3A4P1$\Rightarrow$3A4P1A2. 45.87\% of the runs contains the pathway 1P4 $\Rightarrow$ 3A4P1$\Rightarrow$ 3A4P1A2.
-\item  
-\end{itemize}
-\item Compare the nucleus residues with Protein G..
-\begin{itemize}
-\item The aligned sequences in the ubiquitin superfamily (with respect to the protein G) that show a frequency greater than 0 are: L5:K306(92.77\%), F30:V326(31\%), W43:L343(30.93\%), Y45:F345(27.43\%) and F52:L367(61.2\%). The sequence and structural alignment was taken from (Similarity of Protein G and Ubiquitin). It is important to stress that all the matches belongs to the secondary structures and that the atoms in the matched residues can be superimposed. The protein reference was 1UBQ and 1CMX.
-\end{itemize}
-\end{itemize}
 
 
 
@@ -560,12 +580,15 @@ A1 &  &  &  &  &  &  &  &  &  &  & 100  \\
 
 \subsection{Conclusions of the experimental framework}
 
+
+
+
 \begin{enumerate}
 \item The proposed method improves the prediction of residue contacts.
 \begin{itemize}
 \item :) The proposed method improves the prediction of residue contacts with respect to our previous approach (compared with protein G).
 \item :) The proposed method improves the prediction of $L_{500}$ for EvFold.
-\item :) The proposed method predicts  residue contacts with an average greater that $50\%$ for all quality measures for $\pm2$ for all contact separations in the complete benchmark.
+\item :) The proposed method predicts  residue contacts with an average greater that $50\%$ for all quality measures for $\pm2$ for all contact separations in the complete benchmark.. 
 \item :) Exact prediction tends to be higher than $0.2$ for all the contact separations.
 \item :) The precision of strand prediction is high in the benchmark. Specially for $\pm2$.
 \item :) An ``homogeneous'' behaviour can be noted in the data set regardless the diversity of the benchmark. Furthermore, there is a good balance between contact and strand prediction. 
@@ -584,7 +607,7 @@ A1 &  &  &  &  &  &  &  &  &  &  & 100  \\
 
 \item The proposed method has a good prediction of protein pathways.
 \begin{itemize}
-\item :) The proposed method correlates well the in-silico data vs experimental data (3 full experiments). However this correlation is constrained by the level of detail given by our method and the lack of an helix analysis.
+\item :) The proposed method correlates well the in-silico data vs experimental data (3 full experiments). However this correlation is constrained by the level of detail given by our method and the lack of an helix analysis. Inspection of the results reveals that the folding intermediates are consisted with previous literature reports. Specifically, it is consistent with the work reported by (\cite{blanco1994short,kuszewski2008fast}), with respect to the early formation of the second hairpin ($\beta3 - ~turn -\beta4$) and its fundamental role in the folding process. Additionally, this second hairpin centers around known nucleation points W43, Y50, F54 that are strongly stabilized by three hydrophobic residues W43, Y45 , F52 (\cite{hubner2004commitment}). Our results also show the nucleation of the $\beta$-sheet residues between $\beta1$ and $\beta4$ as a next folding event (See permutation $3 ~ 4 ~1 ~2$ with pairings  $\mathit{ANTI ~NONE ~ANTI}$). This folding event can be preceded by the folding interaction between the $\alpha$-helix and the second hairpin as also reported in (\cite{kmiecik2008folding,song2002path}).  Interestingly, there are many interactions of three pairings (i.e., four $\beta$-strands), which agrees with previous findings about that four stranded $\beta$-sheets constitutes a metastable folding intermediate (\cite{neudecker2012structure}). This fact is very important because it gives a possible explanation about how the exposition of strand $\beta1$ and the four $\beta$-strand complex can lead the amyloid aggregation process.
 \item :) The method is flexible enough to agree with different experimental results, even if those experiments are sometimes contradictory.
 \item :| The method validate some reported experiments and explore some pathways do not reported, however, the method can not make any consistent claim about new biological discoveries.  
 \item :| The method is  consistent in the prediction of TS. We were able also to study nuclei residues.
