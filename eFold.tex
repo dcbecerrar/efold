@@ -309,7 +309,20 @@ Markov process. Given the matrix of folding rates $R$, where $R_{ij} = r_{ij}$ a
 
 In this section, an experimental framework to report the results obtained using the proposed approach is presented. Specifically, an analysis of the results obtained over the set of benchmark proteins is provided.
 
-In order to understand the performance of the proposed method, two main experiments were performed to study the modelling ensemble (protein structure prediction) and modelling folding phases (protein pathway prediction). The first phase is performed off line and it contributes most of the complexity of the algorithm. The second part is computed online and it runs using a web-service as interface with the user. \efold is run having as input only the amino-acid sequence and a set of parameters. Then, the algorithm runs until all the folding pathways and structures have been computed. Based on the experimental framework and user experiences with our previous techniques, we have fixed the limits of our algorithm (constrained in the web service interface) to predict the folding pathways for small proteins (less than 200 amino acids), and to model proteins with up to 7 different $\beta$-sheet strands.
+In order to understand the performance of the proposed method, two experiments were performed to study the modelling ensemble (protein structure prediction) and modelling folding phases (protein pathway prediction). The first phase is performed off line and it contributes most of the complexity of the algorithm. The second part is computed online and it runs using a web-service as interface with the user. \efold is run having as input only the amino-acid sequence and a set of parameters. Then, the algorithm runs until all the folding pathways and structures have been computed. Based on the experimental framework and user experiences with our previous techniques, we have fixed the limits of our algorithm (constrained in the web service interface) to predict the folding pathways for small proteins (less than 200 amino acids), and to model proteins with up to 7 different $\beta$-sheet strands.
+
+The prediction of residue-residue contacts has been proved useful in reconstructing protein backbones by providing information to determine accurate 3D protein structures. Generally, the predictors of residue-residue proximity in folded structures (such as \evfold) are based on the existence of interdependent changes in groups of variable amino acids belonging to a protein family of homologues. Even if \efold is not an algorithm developed to predict residue-residue contacts, we evaluated the prediction capabilities of \efold to recognize contacts involved in secondary structures. Then, we tested the proposed algorithm using the complete protein benchmark and compared the performance of \efold with the predictions performed by \evfold and by our previous algorithm \tfolder. The results for the contacts prediction are discussed in the Section \ref{sec:contact_and_strand_prediction}.
+
+As previously stated, \efold is an ensemble algorithm aimed at protein structure and pathways prediction. Then, we are interested in study its capability to predict contacts involved in secondary structures. The prediction of those contacts is studied following the same methodology than normal residue-residue contacts. A pair of residues are considered to be part of $\beta$-strand interactions if the predicted residues are contacts and those contacts are observed to be involved in a $\beta$-sheet interaction in its corresponding PDB file. Finally, the topology prediction is studied based on the ranking of the Boltzmann probabilities of each ensemble of secondary structures. Particularly, the position of the topology reported by the PDB file with respect a sorting of the Boltzmann probabilities of all the secondary structures is computed.  The results for the strand prediction are discussed in the Section \ref{sec:contact_and_strand_prediction}
+
+\efold represents the proteins by a coarse-grained residue-level representation using the set of residue/residue contacts that form hydrogen bonds between $\beta$-strand backbones. \efold performs the generation of all the admissible $\beta$-sheet topologies and the computation of the Boltzmann partition function over those topologies. Then, \efold ranks those topologies based on their energy states and it clusters the top low-energy states to predict the folding dynamics. The experiment reported in section \ref{sec:topology_prediction} quantify the ability of \efold to correctly rank the admissible $\beta$-sheet topologies. Particularly, for each protein in the benchmark, we are interested in quantify the position of the topology reported by the corresponding PDB file in the rank computed by \efold.
+
+To study the efficacy of our technique for predicting protein folding pathways, we studied the folding landscape of proteinG, Ubiquitin and SH3 domains, proteins for which their pathways have been elucidated through many experimental studies and/or MD simulations (see Material section for more details). A graph for a specific folding pathway was constructed by considering all pairs of clusters computed  during the modelling ensemble phase. If the minimum distance between two clusters was less than the transition threshold, we considered that there was exchange between the two states. The results of this pathway prediction procedure are discussed in section \label{sec:pathway_prediction}.
+
+Understanding the rules that govern the folding of proteins is one of the goals of biophysical studies that is still far from being achieved. Given the  the diversity of protein structures of the native and denatured states, and the differences in sequences and amino-acid compositions, the extraction of general rules from the protein folding process is difficult by studying the folding of individual proteins. Two different strategies have been shown suitable in biophysical studies to extract general rules from the protein folding process. The first approach works by comparing the mechanisms of proteins sharing the same overall fold but
+different sequence,  i.e., members of the same protein family. The second strategy study proteins with a high degree of sequence identity, but different 3D structure.  The results of our experiments based on the first technique are reported in section \label{sec:different_structure}. On the other hand, results based on the first strategy are reported in section \label{sec:different_sequence}.
+
+
 
 \begin{table}[htbp]
 \footnotesize
@@ -336,7 +349,7 @@ Measure & Approach & \multicolumn{2}{c}{$x >0$} & \multicolumn{2}{c}{$x\geq12$} 
 
 \subsection{Contact and Strand Prediction}
 
-The prediction of residue-residue contacts has been proved useful in reconstructing protein backbones by providing information to determine accurate 3D protein structures. Generally, the predictors of residue-residue proximity in folded structures (such as \evfold) are based on the existence of interdependent changes in groups of variable amino acids belonging to a protein family of homologues. Even if \efold is not an algorithm developed to predict residue-residue contacts, we evaluated the prediction capabilities of \efold to recognize contacts involved in secondary structures. Then, we tested the proposed algorithm using the complete protein benchmark and compared the performance of \efold with the predictions performed by \evfold and by our previous algorithm \tfolder. 
+\label{sec:contact_and_strand_prediction}
 
 The first experiment quantify the ability of \efold to predict protein topologies through the prediction of  residue-residue contacts. We sample 150 configurations for each protein of the benchmark, and use these ensembles to compute a stochastic contact map. The contact map represents the probability of observing a given contact. Contacts are defined as all $C_\alpha$ atoms less than $8\AA$ apart in the PDB file. The precision (i.e., $\frac{no. ~ of ~ correctly ~ predicted ~ contacts}{no. ~ of ~ predicted ~ contacts}$), sensitivity (i.e., $\frac{no. ~ of ~ correctly ~ predicted ~ contacts}{no. ~ of ~ observed ~ contacts}$) and F-measure {i.e., $\frac{2 \times precision \times sensitivity}{precision + sensitivity}$} were the chosen measures to assess the effectiveness of the method. These metrics are evaluated for all types of contacts (short, medium, and long-range). Particularly, an evaluation is performed when predicted contacts are within exact or $\pm2$ residues of an observed contact, and are more than 0, 12 and 24 residues apart. 
 
@@ -345,8 +358,6 @@ Figure \ref{fig:boxplots} (column \textit{Contact prediction}) reports, through 
 Comparing the predicted residue contacts between \efold and our previous model \tfolder for the Protein G, it is worth noticed in Table \ref{tb:comparison} that \efold shows a better predicted accuracy than the \tfolder algorithm. Furthermore, the proposed method performed better than tFolder in all the ranges except for the exact observed contacts studied 24 residues apart. The proposed approach not only kept sensitive to the distance of contact separation, but it increased the precision and sensitivity of the ensemble method. 
 
 \efold is also compared with \evfold to measure at which extent \efold improve the residue contact predictions used as input in our method. Particularly, the $500$ best ranked evolutionary inferred contacts (i.e., EICs) computed by \evfold are used as input in \efold (see section Methodology for more details).  Figure \ref{fig:boxplotsevfold} (column \textit{Contact prediction}) reports, through box plots, the results of the experiments for the complete set of proteins. The recall of \evfold for $\pm2$ averages around $40\%$ for all the range of contacts. Then, \evfold gets a better coverage than \efold given that, unlike \efold, \evfold does not focus only in contacts involved in secondary structures. Regarding the precision of the \evfold results, its low performance can be explained by the dependence of \evfold on the depth of the target alignments (See supplementary Table 1 for a complete list of the size of MSAs).  Figure \ref{fig:boxplotsevfold} shows that the methodology implemented by \efold improved the initial contact predictions performed by \evfold. 
-
-As previously stated, \efold is an ensemble algorithm aimed at protein structure and pathways prediction. Then, we are interested in study its capability to predict contacts involved in secondary structures. The prediction of those contacts is studied following the same methodology than normal residue-residue contacts. A pair of residues are considered to be part of $\beta$-strand interactions if the predicted residues are contacts and those contacts are observed to be involved in a $\beta$-sheet interaction in its corresponding PDB file. Finally, the topology prediction is studied based on the ranking of the Boltzmann probabilities of each ensemble of secondary structures. Particularly, the position of the topology reported by the PDB file with respect a sorting of the Boltzmann probabilities of all the secondary structures is computed.  
 
 Figure \ref{fig:boxplots} (column \textit{Strand prediction}) reports, through box plots, the best results of the experiments for contact prediction of residue-residue contacts involved in $\beta$-sheet structures. The results are spliced in rows showing the complete set of proteins (row \textit{Complete}) and the set divided by the number of strands in the tested proteins. It is important to notice that the F-measure values for $\pm2$ for all contact separations in the complete benchmark is higher than $60\%$. This result correspond to a very good performance of the method in terms of its accuracy and sensitivity. Furthermore, it confirms \efold as a very good predictor of contacts involved in secondary structures. Regarding the exact prediction (i.e., columns  $\pm0$), the precision decreases for long range contacts. Particularly, it  goes from a precision around $30\%$ for the complete set of contacts to a precision around $20\%$ in long range contacts. The best and worst performance of \efold can be recognized in proteins with three and two strands, respectively. It is important to stress that in \efold there is not a big difference between the precision and sensitivity values for strand predictions, given that \efold focuses on predicting contacts involved only in secondary structures.
 
@@ -375,7 +386,7 @@ improve the prediction of protein structures and/or pathways, however, in genera
 
 \subsection{Protein Topologies Prediction}
 
-\efold represents the proteins by a coarse-grained residue-level representation using the set of residue/residue contacts that form hydrogen bonds between $\beta$-strand backbones. \efold performs the generation of all the admissible $\beta$-sheet topologies and the computation of the Boltzmann partition function over those topologies. Then, \efold ranks those topologies based on their energy states and it clusters the top low-energy states to predict the folding dynamics. The experiment reported in this section quantify the ability of \efold to correctly rank the admissible $\beta$-sheet topologies. Particularly, for each protein in the benchmark, we are interested in quantify the position of the topology reported by the corresponding PDB file in the rank computed by \efold.
+\label{sec:topology_prediction}
 
 Figure \ref{fig:boxplots} (column \textit{Rank}) reports, through box plots, the position occupied by the PDB topologies in the ranking computed by \efold. Particularly, for each protein composed by $L$ strands, the position with respect to the top percentage when considering all the topologies with $L$ strands (column \textit{All}) and the attainable topologies given a common parent with $L-1$ strands (column \textit{P}) are computed. It is important to stress that the likelihood of a specific topology to be chosen by \efold to create clusters of low-energy states (used to predict the folding dynamics) increases as the topology move to the head of the ranking-list.
 
@@ -384,13 +395,14 @@ Figure \ref{fig:boxplots} (column \textit{Rank}) shows that, in average, the pro
 
 \subsection{Protein Pathway Prediction}
 
-To study the efficacy of our technique for predicting protein folding pathways, we studied the folding landscape of proteinG, Ubiquitin and SH3 domains, proteins for which their pathways have been elucidated through many experimental studies and/or MD simulations (see Material section for more details). A graph for a specific folding pathway was constructed by considering all pairs of clusters computed  during the modelling ensemble phase. If the minimum distance between two clusters was less than the transition threshold, we considered that there was exchange between the two states. 
+\label{sec:pathway_prediction}
 
 To measure at what extent the predictions of \evfold influenced the \efold's predictions, runs with different influence of \evfold parameters where computed. Specifically, the parameter $\gamma$ (see equation TBD) was set from a value of $0$ (i.e., The \evfold predictions has not inference in the computation of the state's energy) to a value of $1$ (i.e., The computation of the state's energy is based completely on the \evfold predictions) through adding $0.1$ to the parameter $\gamma$. Five independent runs were computed for each experiment. Then, a total of $50$ simulations were computed for each of the following experiments. 
 
 \subsubsection{Protein G}
 
-Figure \ref{fig:Pathways_1EM7} reports a graph that represents the predicted folding transitions for protein G. The folding landscape and pathway of the peptide were reconstructed following the proposed methodology (see Section Methods). Inspection of this figure reveals that the folding intermediates are consisted with previous literature reports. Specifically, it is consistent with the work reported by (\cite{blanco1994short,kuszewski2008fast}), with respect to the early formation of the second hairpin ($\beta3 - ~turn -\beta4$) and its fundamental role in the folding process. Additionally, this second hairpin centers around known nucleation points W43, Y50, F54 that are strongly stabilized by three hydrophobic residues W43, Y45 , F52 (\cite{hubner2004commitment}) (See figure TBD). Our results also shows an early formation of the first hairpin ($\beta1 - ~turn -\beta2$)) and folding pathways were observed passing through the intermediate $\beta1-~\beta4$ sheet. This agrees with studies \cite{shimada2002ensemble, hubner2004commitment} were it has been shown that proteinG folds through three pathways, all of which pass through an intermediate, to a single transition state. The three intermediates feature a near-native helix along with one go the three states determined by our simulations. Four folding pathways were observed in the simulations. Particularly, $80\%$ of folded runs passed through a $helix - hairpin 1$ complex (red pathway in Figure \ref{fig:Pathways_1EM7}), $16\%$ of the runs have a $helix - hairpin2$ complex and the $64\%$ a $\beta1-\beta4$ sheet complex. These pathways agrees with those found in \cite{shimada2002ensemble}.
+Figure \ref{fig:Pathways_1EM7} reports a graph that represents the predicted folding transitions for protein G. The folding landscape and pathway of the peptide were reconstructed following the proposed methodology (see Section Methods). Inspection of this figure reveals that the folding intermediates are consisted with previous literature reports. Specifically, it is consistent with the work reported by (\cite{blanco1994short,kuszewski2008fast}), with respect to the early formation of the second hairpin ($\beta3 - ~turn -\beta4$) and its fundamental role in the folding process. Additionally, this second hairpin centers around known nucleation points W43, Y50, F54 that are strongly stabilized by three hydrophobic residues W43, Y45 , F52 (\cite{hubner2004commitment}) (See figure TBD). Our results also shows an early formation of the first hairpin ($\beta1 - ~turn -\beta2$)) and folding pathways were observed passing through the intermediate $\beta1-~\beta4$ sheet. This agrees with studies \cite{shimada2002ensemble, hubner2004commitment} were it has been shown that proteinG folds through three pathways, all of which pass through an intermediate, to a single transition state. The three intermediates feature a near-native helix along with one go the three states determined by our simulations. Four folding pathways were observed in the simulations. Particularly, $80\%$ of folded runs passed through a $helix - hairpin 1$ complex (red pathway in Figure \ref{fig:Pathways_1EM7}), $16\%$ of the runs have a $helix - hairpin2$ complex and the $64\%$ a $\beta1-\beta4$ sheet complex. These pathways agrees with those found in \cite{shimada2002ensemble}. Given the complexity of the chain topology, folding and intermediate states, we can expect a statistical distribution of topologically allowed pathways for assembling the tertiary fold as the ones found by our simulations.
+
 
 Comparing the predicted folding pathways between \efold and our previous model \tfolder (See Supplementary Figure TBD), it is worth noticed that both models were able to predict the reported pathway for the tested protein; however, the probability of the experimental folding pathway is higher for \efold than \tfolder. The previous fact means that \efold was more likely to correctly predict the observed folding pathway than its counterpart. Additionally, it is clear that \efold was able to narrow the number of generated and predicted templates. There are two main factors that could help \efold to got this performance with respect to \tfolder. $i)$ The penalization term used in \efold, which penalizes the protein conformations that superimpose a $\beta-strand$ where an $\alpha-helix$ structure was predicted, allowed the model to narrow the search around conformational transitions that are critical to folding. $ii)$ The hierarchical assembly folding model used in \efold could represent a step-wise mechanism to narrow the conformation search through the correct prediction of the  the initial stages of protein folding process.
 
@@ -458,38 +470,53 @@ Figure TBD shows how the probability of observing any of the reachable states ch
 
 
 
+\subsection{ProteinG mutants}
+
+\label{sec:different_sequence}
+
+An novel engineering approach allowed the obtention of set of proteins with high sequence identity but different structure and function \cite{giri2012folding, alexander2007design,he2008nmr }. Particularly, the sequences of two domains from streptococcal protein G were subjected to an iterative design of heteromorphic pairs. Then, two different wild-type protein domains, called $G_{A}$ and $G_{B}$ showing an increasing degree of sequence identity (starting from $1\%$ to $95\%$) have been created.  $G_{A}$ displays a three-helix bundle fold, and $G_{B}$ displays a $\alpha + \beta$ proteinG fold. Table \ref{tb:identity} shows the percentage identity between the different variants of the wild-type proteins and proteinG.  These set of proteins represent a great opportunity to elucidate relationships and dependency between \efold , sequence information and folding mechanisms.
+
+\begin{table}[htbp]
+\footnotesize
+\begin{center} {
+\begin{tabular}{l| l*{10}{l}}
+Protein & 1EM7 & $G_{B95}$ & $G_{A95}$ & $G_{B88}$ & $G_{A88}$  & $G_{B77}$ & $G_{A77}$ & $G_{B30}$ & $G_{A30}$ & $G_{B1}$ & $G_{A1}$ \\
+\hline
+1EM7 & 100 & 63 & 58 & 65 & 54 & 72 & 50 & 83 & 17 & 88 & 13 \\
+$G_{B95}$ &  & 100 & 95 & 93 & 92 & 90 & 88 & 74 & 54 & 67 & 45  \\
+$G_{A95}$ &  &  & 100 & 92 & 97 & 84 & 93 & 68 & 59 & 61 & 50  \\
+$G_{B88}$ & &  &  & 100 & 88 & 93 & 84 & 77 & 50 & 70 & 42  \\
+$G_{A88}$ &  &  &  &  & 100 & 81 & 97 & 65 & 63 & 58 & 54 \\
+$G_{B77}$ &  &  &  &  &  & 100 & 77 & 84 & 43 & 77 & 34  \\
+$G_{A77}$ &  &  &  &  &  &  & 100 & 61 & 67 & 54 & 58  \\
+$G_{B30}$ &  &  &  &  &  &  &  & 100 & 31 & 93 & 24  \\
+$G_{A30}$ &  &  &  &  &  &  &  &  & 100 & 24 & 92  \\
+$G_{B1}$ &  &  &  &  &  &  &  &  &  & 100 & 17  \\
+$G_{A1}$ &  &  &  &  &  &  &  &  &  &  & 100  \\
+\end{tabular} }
+\end{center}
+\caption{\footnotesize Sequence identity between the different variants identified as $G_{A30}$, $G_{A77}$, $G_{A88}$, and $G_{A95}$ for the GA fold, and  $G_{B30}$, $G_{B77}$, $G_{B88}$, and $G_{B95}$ for the GB fold, and the wild type proteins $G_{A1}$ and $G_{B1}$ and the proteinG $1EM7$}
+\label{tb:identity}
+\end{table}
+
+Figure \ref{fig:Pathways_1EM7B} report a graph that represents the predicted folding transitions for the variants and wild type proteins for the GB folds. Special interest is given to the GB folds given than \efold is an algorithm for modelling the folding process of large $\beta$-sheet proteins, such as the $\alpha + \beta$ ubiquitin-like fold reported by the GB folds. From figure \ref{fig:Pathways_1EM7B} it is clear that four main set of pathways can be obtained from the simulations. Specifically, the first group is constituted by the variants $G_{B88}$ and $G_{B95}$, the variants $G_{B77}$, $G_{B33}$ and $G_{B1}$ composed the second, third and fourth groups, respectively. Comparing those sets, it is important to stress that the blue path is the most probable path in all the sets. This pathways correspond to the early formation of the second hairpin ($\beta3 - ~turn -\beta4$) and the first hairpin ($\beta1 - ~turn -\beta2$) followed by the formation of the $\beta1-~\beta4$ sheet. The red pathway is also highly present in our simulations. This pathway favours the early formation of the first hairpin followed by the formation of the sheet and second hairpin. These behaviours agree with the folding pathways attributed to a ProteinG like fold. Beside the common folding paths, our simulations exhibit distinct folding routes for the protein G variants. Particularly, the variants $G_{B95}$ and $G_{B}$ exhibit an  path based on an early formation of the second hairpin followed by a $\beta1-~\beta4$ sheet formation (orange path in Figure \ref{fig:Pathways_1EM7B}) that is not present in the other variants. Additionally. the wild type $G_{B95}$ does not show the path involving an early formation of the $\beta1-~\beta4$ sheet. The previous simulations agrees with the evidence that proteinG variants exhibit distinct folding routes, where the main difference between them is a different order of formation of the $\beta$-strands \cite{lindorff2011fast}.
 
 
 
-SUPER IMPORTANTE PARA EL SIGUIENTE EXPERIMENTO
 
 
 
 
-
-
-
-given protein GÕs non-trivial chain topology, it is reasonable to expect that there should be a statistical distribution of topologically allowed pathways for assembling the tertiary fold
-
-
-
-a detailed understanding of the folding process requires characterization of all alternative protein conformations that emerge along the folding pathway, including the unfolded state and partially folded intermediates
-
-folding follows a single dominant route in which elementsof the native structure appear in an order highly correlated with their propensity to form in theunfolded state.
 
 
 Theory andprevious simulations suggest that protein foldingmay be a highly heterogeneous process, with multiplesuch pathways each accounting for a smallfraction of the total flux
 
 There is experimentalevidence for heterogeneous folding mechanismsin only a few two-state folding proteins
 
-the protein G variant, clearly exhibit twostructurally distinct folding routes. Both are a/bproteins of moderate size, and the differencebetween the routes is a different order of formationof the b strands.
 
+TOCA UN PARRAFO HABLANDO DE LA SENSIBILIDAD DE EFOLD RESPECTO A LA SIMILITUD DE SEQUENCIA.
 
-
-In the case of theredesigned variant of protein G that we studied,the principal difference between the two routesis the order in which the two hairpins form. Thisobservation is in line with experimental resultson wild-type protein G and its redesigned NuG2variant, which share the same fold as the proteinG variant considered in this study
-
-
-
+TOCA HACER EL ANALISIS DE NUCLEI
 
 
 
@@ -499,18 +526,55 @@ In the case of theredesigned variant of protein G that we studied,the principa
 
 
 
+folding of different members belonging to the same protein family
+
+
+\begin{figure*}[htbp]
+	 \centering
+	 		\includegraphics[scale=0.9, angle =0, clip=true, trim= 10 0 100 40]{Figures/Pathways_1EM7A.pdf}
+			\caption{Pathways for the proteins $G_{A30}$, $G_{A77}$, $G_{A88}$, and $G_{A95}$ for the GA fold: The nodes in the graph represent energetically accessible conformation states which have been previously generated by the proposed Boltzmann-weighted ensemble sampling method. The percentage at top of each vertex (and its corresponding transparency) count for the number of times that this topology is predicted as a transition over the total number of runs. The vertices in the graph represent the transition between two topologies. The topologies connected by an edge are compatible topologies with structural similarity. The percentage at top of each edge (and its corresponding transparency) count for the number of times that this transition is found over the total number of runs. The predicted folding pathways are presented as paths in the graph. The percentage of presence of each path is presented through a Venn diagram at the right top corner of the figure. If the pathways of two specific variants are similar, the simulated pathways are merged in a single path.}  
+		\label{fig:Pathways_1EM7A}
+\end{figure*}
+
+\begin{figure*}[htbp]
+	 \centering
+	 		\includegraphics[scale=0.7, angle =0, clip=true,  trim= 10 0 100 40]{Figures/Pathways_1EM7B.pdf}
+			\caption{Pathways GB: Pathways for the proteins $G_{B30}$, $G_{B77}$, $G_{B88}$, and $G_{B95}$ for the GB fold: The nodes in the graph represent energetically accessible conformation states which have been previously generated by the proposed Boltzmann-weighted ensemble sampling method. The percentage at top of each vertex (and its corresponding transparency) count for the number of times that this topology is predicted as a transition over the total number of runs. The vertices in the graph represent the transition between two topologies. The topologies connected by an edge are compatible topologies with structural similarity. The percentage at top of each edge (and its corresponding transparency) count for the number of times that this transition is found over the total number of runs. The predicted folding pathways are presented as paths in the graph. The percentage of presence of each path is presented through a Venn diagram at the right top corner of the figure. If the pathways of two specific variants are similar, the simulated pathways are merged in a single path.}  
+		\label{fig:Pathways_1EM7B}
+\end{figure*}
+
+
+
+\subsection{Pfam families}
+
+\label{sec:different_structure}
+
+Experimental studies suggest that the native topology of a protein plays a key role in determining its folding pathway. These studies usually compares proteins that differ in sequence but share the same overall fold to identify relationships between sequence information and folding mechanism. As a result, the folding mechanisms of proteins belonging to a same protein family have been reported as conserved \cite{travaglini2009folding, zarrine2005family}. In this section, we analyzed the results of comparing folding processes of different members of four protein families. Particularly, the Pfam families PF00014, PF00018, PF00240,  and PF01423 are studied.  
 
 
 
 
-The proposed method has a good prediction of protein pathways.
-\begin{itemize}
-\item :) The proposed method correlates well the in-silico data vs experimental data (3 full experiments). However this correlation is constrained by the level of detail given by our method and the lack of an helix analysis. Inspection of the results reveals that the folding intermediates are consisted with previous literature reports. Specifically, it is consistent with the work reported by (\cite{blanco1994short,kuszewski2008fast}), with respect to the early formation of the second hairpin ($\beta3 - ~turn -\beta4$) and its fundamental role in the folding process. Additionally, this second hairpin centers around known nucleation points W43, Y50, F54 that are strongly stabilized by three hydrophobic residues W43, Y45 , F52 (\cite{hubner2004commitment}). Our results also show the nucleation of the $\beta$-sheet residues between $\beta1$ and $\beta4$ as a next folding event (See permutation $3 ~ 4 ~1 ~2$ with pairings  $\mathit{ANTI ~NONE ~ANTI}$). This folding event can be preceded by the folding interaction between the $\alpha$-helix and the second hairpin as also reported in (\cite{kmiecik2008folding,song2002path}).  Interestingly, there are many interactions of three pairings (i.e., four $\beta$-strands), which agrees with previous findings about that four stranded $\beta$-sheets constitutes a metastable folding intermediate (\cite{neudecker2012structure}). This fact is very important because it gives a possible explanation about how the exposition of strand $\beta1$ and the four $\beta$-strand complex can lead the amyloid aggregation process.
-\item :) The method is flexible enough to agree with different experimental results, even if those experiments are sometimes contradictory.
-\item :| The method validate some reported experiments and explore some pathways do not reported, however, the method can not make any consistent claim about new biological discoveries.  
-\item :| The method is  consistent in the prediction of TS. We were able also to study nuclei residues.
-\item :( First folding options do not agree with reported pathways.
-\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -567,9 +631,11 @@ UN PARRAFO DICIENDO QUE LOS PATHWAYS NO SON UNICOS => PARA ESO ME SIRVE EL ULTIM
 
 
 
+PARA LA SIGUIENTE SECCION:
 
+A suitable strategyto tackle the problem is to study proteins that differ in sequencebut share the same overall fold, i.e., members of the same proteinfamily (1Ð8).
 
-
+In particular, it was reportedthat the mechanism of folding is, generally, conserved formembers of the same protein family (9, 10) supporting the ideathat native topology is often a main factor in controlling foldingpathway and speed (11).
 
 
 \section{Results}
@@ -579,37 +645,11 @@ UN PARRAFO DICIENDO QUE LOS PATHWAYS NO SON UNICOS => PARA ESO ME SIRVE EL ULTIM
 
 
 
-\begin{figure*}[htbp]
-	 \centering
-	 		\includegraphics[scale=0.9, angle =0, clip=true, trim= 10 0 100 40]{Figures/Pathways_1EM7A.pdf}
-			\caption{Pathways 1EM7A}  
-		\label{fig:Pathways_1EM7A}
-\end{figure*}
-
-\begin{figure*}[htbp]
-	 \centering
-	 		\includegraphics[scale=0.7, angle =0, clip=true,  trim= 10 0 100 40]{Figures/Pathways_1EM7B.pdf}
-			\caption{Pathways 1EM7B}  
-		\label{fig:Pathways_1EM7B}
-\end{figure*}
 
 
 
-\begin{tabular}{l| l*{10}{l}}
-Protein & 1EM7 & B95 & A95 & B88 & A88  & B77 & A77 & B30 & A30 & B1 & A1 \\
-\hline
-1EM7 & 100 & 63 & 58 & 65 & 54 & 72 & 50 & 83 & 17 & 88 & 13 \\
-B95 &  & 100 & 95 & 93 & 92 & 90 & 88 & 74 & 54 & 67 & 45  \\
-A95 &  &  & 100 & 92 & 97 & 84 & 93 & 68 & 59 & 61 & 50  \\
-B88 & &  &  & 100 & 88 & 93 & 84 & 77 & 50 & 70 & 42  \\
-A88 &  &  &  &  & 100 & 81 & 97 & 65 & 63 & 58 & 54 \\
-B77 &  &  &  &  &  & 100 & 77 & 84 & 43 & 77 & 34  \\
-A77 &  &  &  &  &  &  & 100 & 61 & 67 & 54 & 58  \\
-B30 &  &  &  &  &  &  &  & 100 & 31 & 93 & 24  \\
-A30 &  &  &  &  &  &  &  &  & 100 & 24 & 92  \\
-B1 &  &  &  &  &  &  &  &  &  & 100 & 17  \\
-A1 &  &  &  &  &  &  &  &  &  &  & 100  \\
-\end{tabular}
+
+
 
 
 
