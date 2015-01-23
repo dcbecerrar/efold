@@ -363,12 +363,6 @@ Figure \ref{fig:boxplots} (column \textit{Strand prediction}) reports, through b
 
 Figure \ref{fig:boxplotsevfold} (column \textit{Strand prediction}) reports, through box plots, the results of the experiments performed by \evfold for the complete set of proteins. It is important to notice that these results are more homogeneous than the results obtained in the contact prediction experiment. Moreover, there is not a big difference in the behaviour of the precision and recall measures, as noted in the contact prediction column. There is not a big difference either between the contacts $\pm 0$ and $\pm 2$ for all the contact ranges. The average of all the evaluation measures for an exact prediction ($\pm 0$), for the strand prediction experiment, fall in the same range (i.e., below a $10\%$) than its contact prediction counterpart.  Then, it gives the insight that most of the contacts predicted by \evfold are involved in secondary structures. On the other hand, there is a clear decrease of the recall of the strand prediction with respect to the contact prediction, suggesting that for ($\pm 2$) predictions, \evfold reports a greater quantity of contacts not involved in secondary structure than the exact predictions ($\pm 0$).  The prediction values for \evfold are much lower than the values of \efold, showing that the methodology implemented by \efold improved the initial contact predictions performed by \evfold regarding contact and strand predictions. 
 
-There is not a clear consensus about what accuracy, coverage, and distribution of contacts along the sequence are needed to 
-improve the prediction of protein structures and/or pathways, however, in general the incorporation of contact information into protein folding programs leads to improvement of the results. Particularly, the correct prediction of long-range contacts must be predicted correctly to allow an accurate folding pathways to be reconstructed. Long-range contacts narrow the search space of possible conformation imposing strong constraints on the 3D structure. \efold represents an ensemble predictor that is conceptually different to the state-of-the-art algorithms in contact prediction, however, it produce results comparable results with those algorithms. Furthermore, \efold reports very good results, when compared with standard evaluation measures, for contact and residue prediction.  
-
-
-
-
 \begin{figure*}[htbp]
 	 \centering
 	 		\includegraphics[scale=0.85, angle =0, clip=true, trim= 20 285 0 2]{Figures/BoxPlots.pdf}
@@ -672,7 +666,27 @@ the complete set of experiments.
 
 
 
-\section{Conclusions}
+\section{Conclusions and Discussions}
+
+In contrast to how genes are studied, it is more challenging to study protein structure with high-throughput methods. Furthermore, post-translational modifications, regulatory mechanisms and environmental factors can result in proteins with multiple forms and structures \cite{liebler2002introduction}. Therefore, protein folding methods aim the development of reliable prediction of protein 3D structures and structured folding pathways. An enormous challenge for protein folding prediction methods has been to predict 3D native structures and folding pathways for the broad range of proteins. This broad range is composed by thousands of different folds, thousands of different structural families and an unknown number of different folding mechanisms. Additionally, the protein folding problem is an NP-complete problem even in simple lattice models \cite{berger1998protein,crescenzi1998complexity} with tremendous running time requirements. Reliable predictions and critical features of protein foldings have been produced  through custom-designed supercomputers, however, state of the art methods are currently unable to compute, and even approximate, the complete 3D conformational landscape for all protein targets. Then, there is a tangible need in the structural biology research field to develop efficient and effective protein folding methods.
+
+In this paper we propose a new and effective coarse grained methodology for the pathway prediction problem using few computational resources. Specifically, we propose a new methodology to combine the ensemble modelling and the evolutionary based sequence information for folding pathway prediction. Particularly, the residue contact information is integrated into a Boltzmann sampling process to circumvent the limitations of potential energy scoring schemes and to narrow the conformational search space (the two most important bottlenecks in protein folding prediction). The proposed method expands the scope of previous ensembles prediction techniques. The proposed method differs from previous works in the following features. $i)$ This work shows a clear improvement in performance (i.e. speed and accuracy). $ii)$ A new energy model is implemented based on joint probabilities mimicking an hierarchy folding process and the ability of proteins to adopt different conformational states in vivo. $iii)$ The proposed method exploits the evolutionary record in protein families adding information about evolutionary constrained interactions in the protein folding prediction. $iv-)$ The method needs as input the protein sequence alone and it does not require any a priori knowledge of the native protein structure. $v-)$ The method is able to model pure $\beta$, pure $\alpha$ and $\alpha$/$\beta$ interactions.
+
+\efold is tested using a considerable corpus of proteins with low identity, which includes the main protein fold families $\alpha/\beta$, $\alpha+\beta$ and all-$\beta$. From the experiments, it can be stated that the proposed model is a good protein structure and 
+pathway predictor. 
+
+There is not a clear consensus about what accuracy, coverage, and distribution of contacts along the sequence are needed to 
+improve the prediction of protein structures and/or pathways, however, in general the incorporation of contact information into protein folding programs leads to improvement of the results. Particularly, the correct prediction of long-range contacts must be predicted correctly to allow an accurate folding pathways to be reconstructed. Long-range contacts narrow the search space of possible conformation imposing strong constraints on the 3D structure. \efold represents an ensemble predictor that is conceptually different to the state-of-the-art algorithms in contact prediction, however, it produce results comparable results with those algorithms. Furthermore, \efold reports very good results, when compared with standard evaluation measures, for contact and residue prediction.
+
+
+
+
+
+From the experimentation it could be stated that the proposed model is a good protein pathway predictor. The proposed approach can certainly benefit from other improvements, such as the adding of advance heuristics to extract folding pathway information. The results are very encouraging to give insights in our final goals; the creation of better and novel models to predict protein aggregation, hierarchical folding, evolutionary pressure, docking, and in general protein structure related problems and drug discovery processes. 
+
+
+
+ 
 
 
 \section{Report December 3, 2014}
