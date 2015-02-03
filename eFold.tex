@@ -306,7 +306,7 @@ Markov process. Given the matrix of folding rates $R$, where $R_{ij} = r_{ij}$ a
 
 \section{Experimental Framework}
 
-In this section, an experimental framework to report the results obtained using the proposed approach is presented. Specifically, an analysis of the results obtained over the set of benchmark proteins is provided.
+In this section, an experimental framework to report the results obtained using the proposed approach is presented. Specifically, an analysis of the results obtained over the set of benchmark proteins is provided. It is important to stress that when comparing our results with experimental and computational experiments, the numeration used for the strands follows the numeration proposed in our methodology.  
 
 In order to understand the performance of the proposed method, two experiments were performed to study the modelling ensemble (protein structure prediction) and modelling folding phases (protein pathway prediction). The first phase is performed off line and it contributes most of the complexity of the algorithm. The second part is computed online and it runs using a web-service as interface with the user. \efold is run having as input only the amino-acid sequence and a set of parameters. Then, the algorithm runs until all the folding pathways and structures have been computed. Based on the experimental framework and user experiences with our previous techniques, we have fixed the limits of our algorithm (constrained in the web service interface) to predict the folding pathways for small proteins (less than 200 amino acids), and to model proteins with up to 7 different $\beta$-sheet strands.
 
@@ -410,22 +410,9 @@ Comparing the predicted folding pathways between \efold and our previous model \
 
 \subsection{Ubiquitin}
 
-THIS SECTION IS INCOMPLETE....... I HAVE TO WORK ON THIS...............................
+Figure \ref{fig:Pathways_1UBQ} reports a graph representing the predicted folding transitions for ubiquitin protein. Inspection of this figure reveals that our simulations are in agreement with a view of ubiquitin folding suggested from previous experimental results and in-silico simulations. Particularly, our simulations give a special importance to a topology encompassing the $\beta1$ and $\beta2$ strand. This topology has been described to participate in a polarized and well-defined transition state ensemble \cite{piana2013atomic,sosnick2004differences,went2005ubiquitin}. Regions of the local $\beta1$-$\beta2$ hairpin populate native geometries, then this secondary structure can be stabilized by tertiary interactions between the $\alpha$-helix and the $\beta1$-$\beta2$ sheet. 
 
-Figure \ref{fig:Pathways_1UBQ} reports a graph representing the predicted folding transitions for ubiquitin protein. Inspection of this figure reveals 
-
-
-
-that the folding intermediates are consisted with previous literature reports. Specifically,
-
-
-
-
-
-
-
-Putative scheme for the folding pathway of ubiquitin based on protein engineering and other results.24 It is likely that there is some residual structure in the denatured state of ubiquitin in the region of the first b-hairpin and the a-helix. Such structure will be transient, flickering in-and-out. By the rate-limiting transition state this structure has consolidated—the helix is almost fully formed and the b-hairpin is partially structured. In this state, the secondary structure is stabilised by interactions between the b-hairpin and the helix. The C-terminal region remains relatively unstructured until after the TS barrier has been crossed. It is formed rapidly in a downhill process post-TS.
-
+Computational analysis of experimental $\phi$-values suggested that strands $\beta3$ and $\beta5$ might be formed adopting a native-like topology in the TSE \cite{varnai2008determination}. Furthermore, $\psi$ analysis suggested that ubiquitin folds through a much more organized TS ensemble with a common nucleus consisting of a partially formed four-stranded sheet network ($\beta1~-~\beta2~-~\beta5~-~\beta3$). Then, in the ubiquitin folding pathway, regions of the local $\beta1$-$\beta2$ hairpin populate native geometries. Next, strand $\beta5$ joins the nascent hairpin-helix nucleus. Finally, the more distal strand $\beta3$ is joined to the core structure cite{krantz2004discerning}. Our simulations show an important role of the topology $\beta3~-~\beta5$ when combining with the topology $\beta1$-$\beta2$. Particularly, it can be noted that the topology  ($\beta2~-~\beta1~-~\beta5~-~\beta3$) is the most populated edge in the graph. This topology receives the flow containing most of the in-coming paths. Furthermore, this topology represents also the edge with more connections with the edge representing the native topology (i.e., ($\beta4~-~\beta3~-~\beta5~-~\beta1~-~\beta2$)).  The different paths coming into the topology $\beta2~-~\beta1~-~\beta5~-~\beta3$ can represent the heterogeneity predicted for the transition state structure. The routes that stem from the core nucleus represent the heterogeneity of the transition state. The TS ensemble can contains subpopulations with additional structure formation.Particularly, this topology contains all the obligatory elements, but the nucleus of the TS structure can spread in different directions, adding more $\beta1~-~\beta2$ or more $\beta3~-~\beta5$ structures.   
 
 
 
@@ -467,7 +454,7 @@ Figure TBD shows how the probability of observing any of the reachable states ch
 
 \label{sec:different_sequence}
 
-An novel engineering approach allowed the obtention of set of proteins with high sequence identity but different structure and function \cite{giri2012folding, alexander2007design,he2008nmr }. Particularly, the sequences of two domains from streptococcal protein G were subjected to an iterative design of heteromorphic pairs. Then, two different wild-type protein domains, called $G_{A}$ and $G_{B}$ showing an increasing degree of sequence identity (starting from $1\%$ to $95\%$) have been created.  $G_{A}$ displays a three-helix bundle fold, and $G_{B}$ displays a $\alpha + \beta$ proteinG fold. Table \ref{tb:identity} shows the percentage identity between the different variants of the wild-type proteins and proteinG.  These set of proteins represent a great opportunity to elucidate relationships and dependency between \efold , sequence information and folding mechanisms.
+An novel engineering approach allowed the obtention of set of proteins with high sequence identity but different structure and function \cite{giri2012folding, alexander2007design,he2008nmr}. Particularly, the sequences of two domains from streptococcal protein G were subjected to an iterative design of heteromorphic pairs. Then, two different wild-type protein domains, called $G_{A}$ and $G_{B}$ showing an increasing degree of sequence identity (starting from $1\%$ to $95\%$) have been created.  $G_{A}$ displays a three-helix bundle fold, and $G_{B}$ displays a $\alpha + \beta$ proteinG fold. Table \ref{tb:identity} shows the percentage identity between the different variants of the wild-type proteins and proteinG.  These set of proteins represent a great opportunity to elucidate relationships and dependency between \efold , sequence information and folding mechanisms.
 
 \begin{table}[htbp]
 \footnotesize
@@ -532,14 +519,16 @@ The folding pathways of disulfide proteins vary substantially \cite{arolas2006fo
 		\label{fig:Pathways_PF00014}
 \end{figure*}
 
-\subsubsection{PF00014}
+\subsubsection{PF00018}
 
 The results have been already analyzed in the section SH3 domain.
 
 \subsubsection{PF00240}
 
+Figure \ref{fig:Pathways_PF00240} reports a graph that represents the predicted folding transitions for proteins belonging to the Pfam family PF00240. Specifically, the proteins 1CMX, 1EUV and 1UBQ were used to simulate the transitions from a random coil to the native state of proteins having this domain. Through the analysis of this figure, it is clear that the topology $\beta2~-~\beta1~-~\beta4~-~\beta3$ is the conserved topology for the family. This topology corresponds to the organized TS ensemble that consist of a four-stranded sheet network (i.e,. $\beta2~-~\beta1~-~\beta5~-~\beta3$) in the folding pathway of the ubiquitin protein. 
+The different paths that converge to the conserved structure can represent the different proportions of the four properly aligned strands that compose the $\beta$-sheet network. The two most populated paths (green (71\%) and red (60\%)) cross through the topology $\beta2~-~\beta1~-~\beta4$, showing concordance with the ubiquitin folding suggested from experiments. The strand $\beta4$ is present in all the paths that convert to the final topology. This strand is the central strand and a critical structural component in the ubiquitin topology.
 
-
+The topology  $\beta2~-~\beta1~-~\beta4~-~\beta3$ is topographically related to the structure of ProteinG in that the order, positions and stretches of secondary structures are identical. This fact is important given that  it has been shown that this fold is present in the ubiquitin family an in other proteins with biologically distinct functions, such as the (Ig)-binding protein G \cite{kraulis1991similarity, overington1992comparison}. Later, this common fold was termed $\beta$-grasp and it has been suggested to be a multi-functional scaffold in diverse biological contexts \cite{burroughs2007small}. Studies have suggested that that proteins belonging to a same superfamily (i.e., with identical folds, but highly diverged sequences)  retain identity at sequence positions that participate in the folding nucleus \cite{michnick1998strategy}. Monte Carlo simulations have identified nucleus positions that are conserved among structures with homologous folds for the ProteinG. Particularly, in \cite{shimada2002ensemble}, the identified nucleus identified residues in hairpin 1 (Y3 and L5), the helix (F30), and hairpin 2 (W43, Y45, and F52). All of these residues show low sequence entropy over aligned sequences in the ubiquitin superfamily \cite{michnick1998strategy}. With respect to our simulations, those same residues are reported to be involved in most of the predicted pathways, highlighting the importance that \efold confers to these residues. Particularly, the aligned sequences in the ubiquitin superfamily (with respect to the protein G) reports the residues L5:K6, F30:V26, W43:L43, and Y45:F45 as having a frequency of 99.52\%, 82.54\%, 85.37\% and 42.45\% of presence in the reported pathways, respectively. It is important to stress that all the matches belongs to the secondary structures and that the atoms in the matched residues can be superimposed.
 
 
 
@@ -679,20 +668,7 @@ improve the prediction of protein structures and/or pathways, however, in genera
 
 There is a growing body of evidence that indicates that proteins exhibit simultaneously a variety of folding pathways. Somepaths will be more populated than others. Then, it is important to recognize the statistical dimensions of the protein folding process and to consider protein ensembles that could mimic the ability of proteins to adopt different conformational states in vivo. \efold is an ensemble algorithm that follows this research line. Particularly, it predicts a statistical distribution of topologically allowed pathways through the use of Boltzmann probability function and the simulation of population dynamics to statistically characterized the protein ensembles. The good balance of \efold regarding its effectiveness and efficiency, and its nature to predict structures from sequences alone, allows him to be used on large corpus of data, and eventually contribute decreasing the current gap between protein sequence and structure information. 
   
-Despite their importance, there are little experimental knowledge of protein-folding energy landscapes. Furthermore, there is not a good understanding of the folding routes or transition states for arbitrary protein sequences. Substantial improvementshave been observed for protein folding methods. Particularly, the best predictions in CASP have been shown in average accurateenough to interpret biological mechanisms, to guide biochemical studies, or to initiate a drug discovery programs \cite{dill2012protein}. In spite of these improvements, there are great challenges to achieve in terms of the determination of a folding mechanism, of making ab-initio predictions consistent enough to decrease the current dependency on knowledge of existing structure, and of studying folding diseases, drug affinities, membrane proteins and disorder proteins, to name some. \efold is a coarse-grain algorithm that does not provide specific solutions to any of those challenges. However, it is a method that with a low cost of computer resources, offers a new paradigm to predict protein structures and pathways, giving insights to all of those problems.
-
-
-
-
-
-
-
-
-From the experimentation it could be stated that the proposed model is a good protein pathway predictor. The proposed approach can certainly benefit from other improvements, such as the adding of advance heuristics to extract folding pathway information. The results are very encouraging to give insights in our final goals; the creation of better and novel models to predict protein aggregation, hierarchical folding, evolutionary pressure, docking, and in general protein structure related problems and drug discovery processes. 
-
-
-
- 
+Despite their importance, there are little experimental knowledge of protein-folding energy landscapes. Furthermore, there is not a good understanding of the folding routes or transition states for arbitrary protein sequences. Substantial improvementshave been observed for protein folding methods. Particularly, the best predictions in CASP have been shown in average accurateenough to interpret biological mechanisms, to guide biochemical studies, or to initiate a drug discovery programs \cite{dill2012protein}. In spite of these improvements, there are great challenges to achieve in terms of the determination of a folding mechanism, of making ab-initio predictions consistent enough to decrease the current dependency on knowledge of existing structure, and of studying folding diseases, drug affinities, membrane proteins and disorder proteins, to name some. \efold is a coarse-grain algorithm that does not provide specific solutions to any of those challenges. However, it is a method that with a low cost of computer resources, allows the collection of statistics over many protein trajectories, sampled over varying conditions and various models giving insights on the structures and pathways of proteins to draw general conclusion on those challenges.
 
 
 \section{Report December 3, 2014}
@@ -726,7 +702,7 @@ From the experimentation it could be stated that the proposed model is a good pr
 
 \item The proposed method has a good prediction of protein pathways.
 \begin{itemize}
-\item :) The proposed method correlates well the in-silico data vs experimental data (3 full experiments). However this correlation is constrained by the level of detail given by our method and the lack of an helix analysis. Inspection of the results reveals that the folding intermediates are consisted with previous literature reports. Specifically, it is consistent with the work reported by (\cite{blanco1994short,kuszewski2008fast}), with respect to the early formation of the second hairpin ($\beta3 - ~turn -\beta4$) and its fundamental role in the folding process. Additionally, this second hairpin centers around known nucleation points W43, Y50, F54 that are strongly stabilized by three hydrophobic residues W43, Y45 , F52 (\cite{hubner2004commitment}). Our results also show the nucleation of the $\beta$-sheet residues between $\beta1$ and $\beta4$ as a next folding event (See permutation $3 ~ 4 ~1 ~2$ with pairings  $\mathit{ANTI ~NONE ~ANTI}$). This folding event can be preceded by the folding interaction between the $\alpha$-helix and the second hairpin as also reported in (\cite{kmiecik2008folding,song2002path}).  Interestingly, there are many interactions of three pairings (i.e., four $\beta$-strands), which agrees with previous findings about that four stranded $\beta$-sheets constitutes a metastable folding intermediate (\cite{neudecker2012structure}). This fact is very important because it gives a possible explanation about how the exposition of strand $\beta1$ and the four $\beta$-strand complex can lead the amyloid aggregation process.
+\item :) The proposed method correlates well the in-silico data vs experimental data (3 full experiments). However this correlation is constrained by the level of detail given by our method and the lack of an helix analysis. Inspection of the results reveals that the folding intermediates are consisted with previous literature reports. Specifically, it is consistent with the work reported by (\cite{blanco1994short,kuszewski2008fast}), with respect to the early formation of the second hairpin ($\beta3 - ~turn -\beta4$) and its fundamental role in the folding process. Additionally, this second hairpin centers around known nucleation points W43, Y50, F54 that are strongly stabilized by three hydrophobic residues W43, Y45 , F52 (\cite{hubner2004commitment}). Our results also show the nucleation of the $\beta$-sheet residues between $\beta1$ and $\beta4$ as a next folding event (See permutation $3 ~ 4 ~1 ~2$ with pairings  $\mathit{ANTI ~NONE ~ANTI}$). This folding event can be preceded by the folding interaction between the $\alpha$-helix and the second hairpin as also reported in (\cite{kmiecik2008folding}).  Interestingly, there are many interactions of three pairings (i.e., four $\beta$-strands), which agrees with previous findings about that four stranded $\beta$-sheets constitutes a metastable folding intermediate (\cite{neudecker2012structure}). This fact is very important because it gives a possible explanation about how the exposition of strand $\beta1$ and the four $\beta$-strand complex can lead the amyloid aggregation process.
 \item :) The method is flexible enough to agree with different experimental results, even if those experiments are sometimes contradictory.
 \item :| The method validate some reported experiments and explore some pathways do not reported, however, the method can not make any consistent claim about new biological discoveries.  
 \item :| The method is  consistent in the prediction of TS. We were able also to study nuclei residues.
