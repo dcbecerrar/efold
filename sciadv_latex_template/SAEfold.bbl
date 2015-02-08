@@ -1,0 +1,235 @@
+\begin{thebibliography}{10}
+
+\bibitem{jensen2006interpreting}
+O.~Jensen, Interpreting the protein language using proteomics.
+\newblock {\it Nature Reviews Molecular Cell Biology\/} {\bf 7}, 391--403
+  (2006).
+
+\bibitem{kihara2002ab}
+D.~Kihara, Y.~Zhang, H.~Lu, A.~Kolinski, J.~Skolnick, Ab initio protein
+  structure prediction on a genomic scale: Application to the mycoplasma
+  genitalium genome.
+\newblock {\it Proceedings of the National Academy of Sciences\/} {\bf 99},
+  5993 (2002).
+
+\bibitem{ding2003statistical}
+Y.~Ding, C.~Lawrence, A statistical sampling algorithm for rna secondary
+  structure prediction.
+\newblock {\it Nucleic acids research\/} {\bf 31}, 7280--7301 (2003).
+
+\bibitem{mccaskill2004equilibrium}
+J.~McCaskill, The equilibrium partition function and base pair binding
+  probabilities for rna secondary structure.
+\newblock {\it Biopolymers\/} {\bf 29}, 1105--1119 (2004).
+
+\bibitem{waldispuhl2008modeling}
+J.~Waldisp{\"u}hl, C.~O'Donnell, S.~Devadas, P.~Clote, B.~Berger, Modeling
+  ensembles of transmembrane $\beta$-barrel proteins.
+\newblock {\it Proteins: Structure, Function, and Bioinformatics\/} {\bf 71},
+  1097--1112 (2008).
+
+\bibitem{waldispuhl2006predicting}
+J.~Waldisp{\"u}hl, B.~Berger, P.~Clote, J.~Steyaert, Predicting transmembrane
+  $\beta$-barrels and interstrand residue interactions from sequence.
+\newblock {\it PROTEINS: Structure, Function, and Bioinformatics\/} {\bf 65},
+  61--74 (2006).
+
+\bibitem{waldispuhl2005modeling}
+J.~Waldisp{\"u}hl, J.~Steyaert, Modeling and predicting all-alpha transmembrane
+  proteins including helix-helix pairing.
+\newblock {\it Theoretical computer science\/} {\bf 335}, 67-92 (2005).
+
+\bibitem{shenker2011efficient}
+S.~Shenker, C.~ODonnell, S.~Devadas, B.~Berger, J.~Waldisp{\"u}hl, {\it
+  Research in Computational Molecular Biology\/} (Springer, 2011), pp.
+  408--423.
+
+\bibitem{marks2011protein}
+D.~Marks, {\it et~al.\/}, Protein 3d structure computed from evolutionary
+  sequence variation.
+\newblock {\it PloS one\/} {\bf 6}, e28766 (2011).
+
+\bibitem{monastyrskyy2014evaluation}
+B.~Monastyrskyy, D.~D'Andrea, K.~Fidelis, A.~Tramontano, A.~Kryshtafovych,
+  Evaluation of residue--residue contact prediction in casp10.
+\newblock {\it Proteins: Structure, Function, and Bioinformatics\/} {\bf 82},
+  138--153 (2014).
+
+\bibitem{blanco1994short}
+F.~Blanco, G.~Rivas, L.~Serrano, A short linear peptide that folds into a
+  native stable $\beta$-hairpin in aqueous solution.
+\newblock {\it Nature Structural \& Molecular Biology\/} {\bf 1}, 584--590
+  (1994).
+
+\bibitem{kuszewski2008fast}
+J.~Kuszewski, G.~Clore, A.~Gronenborn, Fast folding of a prototypic
+  polypeptide: the immunoglobulin binding domain of streptococcal protein g.
+\newblock {\it Protein Science\/} {\bf 3}, 1945--1952 (2008).
+
+\bibitem{hubner2004commitment}
+I.~Hubner, J.~Shimada, E.~Shakhnovich, Commitment and nucleation in the protein
+  g transition state.
+\newblock {\it Journal of molecular biology\/} {\bf 336}, 745--761 (2004).
+
+\bibitem{shimada2002ensemble}
+J.~Shimada, E.~I. Shakhnovich, The ensemble folding kinetics of protein g from
+  an all-atom monte carlo simulation.
+\newblock {\it Proceedings of the National Academy of Sciences\/} {\bf 99},
+  11175--11180 (2002).
+
+\bibitem{piana2013atomic}
+S.~Piana, K.~Lindorff-Larsen, D.~E. Shaw, Atomic-level description of ubiquitin
+  folding.
+\newblock {\it Proceedings of the National Academy of Sciences\/} {\bf 110},
+  5915--5920 (2013).
+
+\bibitem{sosnick2004differences}
+T.~R. Sosnick, R.~S. Dothager, B.~A. Krantz, Differences in the folding
+  transition state of ubiquitin indicated by $\varphi$ and $\psi$ analyses.
+\newblock {\it Proceedings of the National Academy of Sciences of the United
+  States of America\/} {\bf 101}, 17377--17382 (2004).
+
+\bibitem{went2005ubiquitin}
+H.~M. Went, S.~E. Jackson, Ubiquitin folds through a highly polarized
+  transition state.
+\newblock {\it Protein Engineering Design and Selection\/} {\bf 18}, 229--237
+  (2005).
+
+\bibitem{varnai2008determination}
+P.~V{\'a}rnai, C.~M. Dobson, M.~Vendruscolo, Determination of the transition
+  state ensemble for the folding of ubiquitin from a combination of $\varphi$
+  and $\psi$ analyses.
+\newblock {\it Journal of molecular biology\/} {\bf 377}, 575--588 (2008).
+
+\bibitem{neudecker2012structure}
+P.~Neudecker, {\it et~al.\/}, Structure of an intermediate state in protein
+  folding and aggregation.
+\newblock {\it Science\/} {\bf 336}, 362--366 (2012).
+
+\bibitem{giri2012folding}
+R.~Giri, {\it et~al.\/}, Folding pathways of proteins with increasing degree of
+  sequence identities but different structure and function.
+\newblock {\it Proceedings of the National Academy of Sciences\/} {\bf 109},
+  17772--17776 (2012).
+
+\bibitem{alexander2007design}
+P.~A. Alexander, Y.~He, Y.~Chen, J.~Orban, P.~N. Bryan, The design and
+  characterization of two proteins with 88\% sequence identity but different
+  structure and function.
+\newblock {\it Proceedings of the National Academy of Sciences\/} {\bf 104},
+  11963--11968 (2007).
+
+\bibitem{he2008nmr}
+Y.~He, Y.~Chen, P.~Alexander, P.~N. Bryan, J.~Orban, Nmr structures of two
+  designed proteins with high sequence identity but different fold and
+  function.
+\newblock {\it Proceedings of the National Academy of Sciences\/} {\bf 105},
+  14412--14417 (2008).
+
+\bibitem{lindorff2011fast}
+K.~Lindorff-Larsen, S.~Piana, R.~O. Dror, D.~E. Shaw, How fast-folding proteins
+  fold.
+\newblock {\it Science\/} {\bf 334}, 517--520 (2011).
+
+\bibitem{travaglini2009folding}
+C.~Travaglini-Allocatelli, Y.~Ivarsson, P.~Jemth, S.~Gianni, Folding and
+  stability of globular proteins and implications for function.
+\newblock {\it Current opinion in structural biology\/} {\bf 19}, 3--7 (2009).
+
+\bibitem{zarrine2005family}
+A.~Zarrine-Afsar, S.~M. Larson, A.~R. Davidson, The family feud: do proteins
+  with similar structures fold via the same pathway?
+\newblock {\it Current opinion in structural biology\/} {\bf 15}, 42--49
+  (2005).
+
+\bibitem{arolas2006folding}
+J.~L. Arolas, F.~X. Aviles, J.-Y. Chang, S.~Ventura, Folding of small
+  disulfide-rich proteins: clarifying the puzzle.
+\newblock {\it Trends in biochemical sciences\/} {\bf 31}, 292--301 (2006).
+
+\bibitem{chang2011distinct}
+J.-Y. Chang, Distinct folding pathways of two homologous disulfide proteins:
+  bovine pancreatic trypsin inhibitor and tick anticoagulant peptide.
+\newblock {\it Antioxidants \& redox signaling\/} {\bf 14}, 127--135 (2011).
+
+\bibitem{chelvanayagam1993prediction}
+G.~Chelvanayagam, P.~Argos, Prediction of protein folding pathways: Bovine
+  pancreatic trypsin inhibitor.
+\newblock {\it Cytotechnology\/} {\bf 11}, S67--S71 (1993).
+
+\bibitem{kraulis1991similarity}
+P.~J. Kraulis, Similarity of protein g and ubiquitin.
+\newblock {\it Science\/} {\bf 254}, 581--582 (1991).
+
+\bibitem{overington1992comparison}
+J.~P. Overington, Comparison of three-dimensional structures of homologous
+  proteins.
+\newblock {\it Current Opinion in Structural Biology\/} {\bf 2}, 394--401
+  (1992).
+
+\bibitem{burroughs2007small}
+A.~M. Burroughs, S.~Balaji, L.~M. Iyer, L.~Aravind, Small but versatile: the
+  extraordinary functional and structural diversity of the beta-grasp fold.
+\newblock {\it Biol Direct\/} {\bf 2}, 18 (2007).
+
+\bibitem{michnick1998strategy}
+S.~W. Michnick, E.~Shakhnovich, A strategy for detecting the conservation of
+  folding-nucleus residues in protein superfamilies.
+\newblock {\it Folding and Design\/} {\bf 3}, 239--251 (1998).
+
+\bibitem{liebler2002introduction}
+D.~Liebler, {\it Introduction to proteomics: tools for the new biology\/}
+  (Humana Pr Inc, 2002).
+
+\bibitem{berger1998protein}
+B.~Berger, T.~Leighton, Protein folding in the hydrophobic-hydrophilic (hp)
+  model is np-complete.
+\newblock {\it Journal of Computational Biology\/} {\bf 5}, 27--40 (1998).
+
+\bibitem{crescenzi1998complexity}
+P.~Crescenzi, D.~Goldman, C.~Papadimitriou, A.~Piccolboni, M.~Yannakakis, On
+  the complexity of protein folding.
+\newblock {\it Journal of computational biology\/} {\bf 5}, 423--465 (1998).
+
+\bibitem{dill2012protein}
+K.~A. Dill, J.~L. MacCallum, The protein-folding problem, 50 years on.
+\newblock {\it Science\/} {\bf 338}, 1042--1046 (2012).
+
+\bibitem{liwo1999protein}
+A.~Liwo, J.~Lee, D.~Ripoll, J.~Pillardy, H.~Scheraga, Protein structure
+  prediction by global optimization of a potential energy function.
+\newblock {\it Proceedings of the National Academy of Sciences\/} {\bf 96},
+  5482--5485 (1999).
+
+\bibitem{becerra2010parallel}
+D.~Becerra, A.~Sandoval, D.~Restrepo-Montoya, L.~Nino, {\it Bioinformatics and
+  Biomedicine (BIBM), 2010 IEEE International Conference on\/} (IEEE, 2010),
+  pp. 137--141.
+
+\bibitem{torres2007novel}
+S.~R.~D. Torres, D.~C.~B. Romero, L.~F.~N. Vasquez, Y.~J.~P. Ardila, {\it
+  Proceedings of the 9th annual conference on Genetic and evolutionary
+  computation\/} (ACM, 2007), pp. 393--400.
+
+\bibitem{wolfinger2004efficient}
+M.~Wolfinger, W.~Svrcek-Seiler, C.~Flamm, I.~Hofacker, P.~Stadler, Efficient
+  computation of rna folding dynamics.
+\newblock {\it Journal of Physics A: Mathematical and General\/} {\bf 37}, 4731
+  (2004).
+
+\bibitem{kmiecik2008folding}
+S.~Kmiecik, A.~Kolinski, Folding pathway of the b1 domain of protein g explored
+  by multiscale modeling.
+\newblock {\it Biophysical journal\/} {\bf 94}, 726--736 (2008).
+
+\bibitem{gronenborn1991novel}
+A.~Gronenborn, {\it et~al.\/}, A novel, highly stable fold of the
+  immunoglobulin binding domain of streptococcal protein g.
+\newblock {\it Science(Washington)\/} {\bf 253}, 657--661 (1991).
+
+\bibitem{cheng2005three}
+J.~Cheng, P.~Baldi, Three-stage prediction of protein $\beta$-sheets by neural
+  networks, alignments and graph algorithms.
+\newblock {\it Bioinformatics\/} {\bf 21}, i75--i84 (2005).
+
+\end{thebibliography}
